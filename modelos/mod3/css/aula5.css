@@ -1,0 +1,36 @@
+@charset "utf-8";
+
+body{
+	font:14px Constantia, "Lucida Bright", "DejaVu Serif", Georgia, serif;
+}
+
+.carregando {
+		padding: 20px;
+		background: #069;
+		color: #fff;
+}
+
+img{
+	float: left;
+	margin-right: 10px;
+	width: 20px;
+}
+
+form{
+	padding: 20px;
+	background: #fbfbfb;
+}
+
+label{
+	display: block;
+	margin-bottom: 15px;
+}
+
+label .field{
+	margin-bottom: 5px;
+	font-weight: bold;
+}
+
+label input{
+	padding: 5px;
+}
