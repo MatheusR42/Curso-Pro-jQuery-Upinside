@@ -5,7 +5,7 @@
 <title>Efeito básicos</title>
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript" src="js/aula1.js"></script>
-<link rel="stylesheet" type="text/css" href="css/aula1">
+<link rel="stylesheet" type="text/css" href="css/aula1.css">
 </head>
 
 <body>

@@ -1,0 +1,18 @@
+@charset "utf-8";
+
+*{
+	font: 14px Tahoma;
+}
+
+.exemplo{
+	padding: 20px;
+	background: #09F;
+	text-align: center;
+	color: #fff;
+	margin: 10px 0;
+	width: 456px;
+	position: absolute;
+	height: 18px;
+}
+
+

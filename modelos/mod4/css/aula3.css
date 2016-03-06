@@ -1,15 +1,10 @@
 @charset "utf-8";
 
-.exemplo{
-	padding: 20px;
+input{
 	margin-bottom: 10px;
-	background: #069;
-	color: #fff;
-	text-align: center;
 }
-
 span{
-	padding: 10px;
+	padding: 200px;
 	color: #fff;
 	text-align: center;
 	background: #09F;
