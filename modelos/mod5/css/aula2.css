@@ -1,0 +1,18 @@
+@charset "utf-8";
+
+
+.exemplo{
+	padding: 20px;
+	margin-bottom: 10px;
+	background: #06F;
+	color: #fff;
+	text-align: center;
+	border: 5px solid black;
+}
+
+textarea{
+	margin: 10px 0;
+	margin-right: 10px;
+	display: block;
+	height: 150px;
+}

@@ -1,0 +1,17 @@
+@charset "utf-8";
+
+
+.exemplo{
+	padding: 20px;
+	margin-bottom: 10px;
+	background: #06F;
+	color: #fff;
+	text-align: center;
+	border: 5px solid black;
+}
+
+.adicionar{
+	background-color: #0CF;
+	text-shadow: 1px 1px #333;
+	font-weight: bold;
+}

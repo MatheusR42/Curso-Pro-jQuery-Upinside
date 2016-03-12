@@ -1,0 +1,32 @@
+@charset "utf-8";
+
+
+.exemplo{
+	padding: 20px;
+	margin-bottom: 10px;
+	background: #06F;
+	color: #fff;
+	text-align: center;
+	border: 5px solid black;
+}
+
+.exemplo strong{
+    display: block;
+    padding: 3px;
+    background: #fff;
+    color: #000;
+    margin-bottom: 5px;
+    min-height: 18px;
+    min-width: 100px;
+}
+
+.exemplo a{
+    color: white;
+    font-weight: bold;
+}
+
+.exemplo .off{
+    background: red;
+    color: white;
+    font-weight: bold;
+}
