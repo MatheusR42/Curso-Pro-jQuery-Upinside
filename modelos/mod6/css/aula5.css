@@ -1,0 +1,32 @@
+*{margin:0; padding:0; font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;}
+body{ background:url(../img/bg5.jpg) repeat;}
+
+.mais{padding:5px; background:url(../img/bg5.jpg) repeat; text-align:center; border:2px solid #CCC; margin:10px; color:#333; cursor:pointer;}
+.mais:hover{background:#48A4FF; color:#FFF;}
+
+.usuarios{display:block; list-style:none; margin:10px;}
+.usuarios li{display:block; padding:10px; background:#fff; margin-bottom:10px; position:relative;}
+.usuarios li .contatos{font:14px Tahoma, Geneva, sans-serif; display:block; background:#fbfbfb; padding:5px; margin-top:5px;}
+.usuarios li .contatos a{text-decoration:none; color:#069;}
+.usuarios li .contatos a:hover{text-decoration:underline;}
+.usuarios li .contatos .email{display:inline; padding:5px 5px 5px 20px; background:url(../img/email.png) center left no-repeat;}
+.usuarios li .contatos .telefone{display:inline; padding:5px 5px 5px 10px; float:right; background:url(../img/phone.png) center left no-repeat;}
+
+.usuarios li:hover .manage{display:block;}
+.usuarios li .manage{position:absolute; right:5px; top:5px; display:none;}
+.usuarios li .manage .btnaction{cursor:pointer; padding:4px; border-radius:6px; -moz-border-radius:6px; -webkit-border-radius:6px;}
+.usuarios li .manage .edit{float:left; margin-right:8px; }
+.usuarios li .manage .edit:hover{background:#09F;}
+.usuarios li .manage .delete{float:right;}
+.usuarios li .manage .delete:hover{background:#F00;}
+
+.lendoartigos{padding:10px; text-align:center; background:#09F; color:#FFF; font-weight:bold;}
+.lendoartigos img{display:block; width:25px; margin:0 auto 5px auto;}
+
+.editar{position:fixed; height:100%; width:100%; background:rgba(0,0,0,0.4) url(../img/load.gif) center center no-repeat; left:0px; top:0px; display:none;}
+.editar form{position:absolute; left:50%; top:50%; padding:20px; background:#fff; width:300px; height:330px; margin-left:-160px; margin-top:-220px; display:none;}
+.editar form label{display:block; margin-bottom:5px;}
+.editar form label .campo{display:block; font-size:12px;}
+.editar form label input{padding:5px; border:5px solid #CCC; width:280px;}
+.editar form .btnedit{display:block; margin:5px 0 0 0; float:left; cursor:pointer;}
+.editar form .btnclose{display:block; margin:5px 0 0 0; float:right; cursor:pointer;}

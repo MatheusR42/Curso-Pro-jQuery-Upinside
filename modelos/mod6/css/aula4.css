@@ -1,0 +1,17 @@
+*{font-family:Arial, Helvetica, sans-serif}
+p{font-size:14px;}
+
+.resposta{padding:20px; background:#09F; color:#FFF;}
+
+.resposta p{margin:10px 0 0 0; border-radius:4px; -moz-border-radius:4px; -webkit-border-radius:4px;}
+.resposta .erro{color:#900; border:3px solid #900; background:#FFEAEA; padding:10px;}
+.resposta .accept{color:#090; border:3px solid #090; background:#E8FFE8; padding:10px;}
+.resposta .load{color:#069; border:3px solid #069; background:#D9ECFF; padding:10px;}
+.resposta .load img{float:left; width:18px; margin-right:8px;}
+
+form{padding:20px; background:#CCC; font-size:14px;}
+form label{display:block; padding:10px; background:#fbfbfb; margin-bottom:5px;}
+form label .campo{float:left; width:80px; text-align:right; margin:5px 5px 0 0;}
+form label input{padding:5px; border:1px solid #CCC; width:70%;}
+form .btn{padding:10px; background:#09f; color:#FFF; border:none; cursor:pointer; font-weight:bold;}
+form .btn:hover{background:#900;}

@@ -1,0 +1,8 @@
+p{font:14px "Trebuchet MS", Arial, Helvetica, sans-serif;}
+.resposta{padding:20px; background:#09F; color:#FFF;}
+form{padding:20px; background:#CCC;}
+form label{display:block; padding:10px; background:#fbfbfb; margin-bottom:5px;}
+form label .campo{float:left; width:80px; text-align:right; margin:5px 5px 0 0;}
+form label input{padding:5px; border:1px solid #CCC; width:340px;}
+form .btn{padding:10px; background:#09f; color:#FFF; border:none; cursor:pointer; font-weight:bold;}
+form .btn:hover{background:#900;}
