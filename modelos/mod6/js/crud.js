@@ -23,7 +23,7 @@ $(function(){
     
     
     //GENERICAS
-    function errDados( menssagem ){
+    function erroDados( menssagem ){
         errMsg.empty().html('<p class="erro">'+menssagem+'</p>').fadeIn('fast');
     }
     
@@ -35,7 +35,6 @@ $(function(){
         url:            urlPost,
         beforeSend:     carregando,
         type:           'POST',
-        
         error:          erroSend
     });
     
@@ -51,7 +50,13 @@ $(function(){
         $.ajax({
             data: sender,
             success: function( resposta ){
-                sucesso( resposta );
+                if(resposta == '1'){
+                     erroDados('<strong>Erro ao cadastrar: </strong> Existem campos em branco');
+                }else if(resposta == '2'){
+                    erroSend();
+                }else{
+                    sucesso('Parabéns <strong>'+ resposta +'</strong>, seu cadastro foi realizado!');
+                }
             }
         });
     });
