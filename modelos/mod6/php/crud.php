@@ -35,6 +35,31 @@ switch ($_POST['acao']){
         
     break;
     
+    case 'ler':
+        $offset = $_POST['offset'];
+        $limit = $_POST['limit'];
+
+        $qr = "SELECT * FROM mod6_clientes ORDER BY nome ASC LIMIT $offset,$limit";
+        $ex = mysqli_query($link, $qr) or die (mysqli_error());
+        if(mysqli_num_rows($ex) >= 1){
+            
+            while($res = mysqli_fetch_assoc($ex)):
+                echo '<li>';
+                    echo '<h3>'.$res['nome'].' '.$res['sobrenome'].'</h3>';
+                    echo '<div class="contatos">';
+                        echo '<div class="email"><a href="mailto:'.$res['email'].'">'.$res['email'].'</a></div>';
+                        echo '<div class="telefone">'.$res['telefone'].'</div>';
+                    echo '</div><!-- /contatos -->';
+                    echo '<div class="manage">';
+                        echo '<div class="btnaction edit j_edit"><img src="img/edit.png" alt="Editar" title="Editar" /></div>';
+                        echo '<div class="btnaction delete j_delete"><img src="img/delete.png" alt="Excluir" title="Excluir" /></div>';
+                    echo '</div><!-- /manage -->';
+                echo '</li>';
+            endwhile;
+        }else{
+            echo "3";
+        }
+    break;
     default :
         echo '2';
 }

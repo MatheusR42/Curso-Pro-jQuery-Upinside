@@ -57,8 +57,54 @@ $(function(){
                 }else{
                     sucesso('Parabéns <strong>'+ resposta +'</strong>, seu cadastro foi realizado!');
                 }
+            },
+            complete: function(){
+                location.href='#';
+                cadastro.find('input:text').val('');
             }
         });
     });
+
+    //READ
+    var loadLer = $('.lendoartigos');
+    var listler = $('.usuarios');
+    var loadmore = $('.j_read');
+
+    listler.empty();
+    loadmore.hide();
+
+    function carregarUsuario( instrucoes ){ 
+        $.ajax({
+            data:           instrucoes,
+            beforeSend:     '',
+            error:          '',
+            success:        function( leitura ){
+                if(leitura != '3'){
+                    listler.append(leitura);
+                    loadLer.delay(300).fadeOut('slow');
+                    loadmore.delay(1000).fadeIn('fast');
+                }else{
+                    loadmore.delay(1000).fadeIn('fast');
+                    loadmore.text('Não existem mais usuários. Recarregar a página')
+                    .click(function(){
+                        location.reload();
+                    });
+                    loadLer.delay(300).fadeOut('slow');
+                }
+            }
+        });
+    }
+    carregarUsuario("acao=ler&offset=0&limit=2");
+
+    var offset = 2;
+
+
+    loadmore.click(function(){
+        $(this).fadeOut(100);
+        loadLer.fadeIn('fast');
+        carregarUsuario("acao=ler&offset="+offset+"&limit=2");
+        offset+=2;
+    });
+
 });
 
