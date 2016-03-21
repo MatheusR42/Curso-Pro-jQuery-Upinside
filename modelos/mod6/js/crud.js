@@ -106,5 +106,25 @@ $(function(){
         offset+=2;
     });
 
+    //DELETE
+
+    listler.on('click', '.j_delete', function(){
+        var delid = $(this).attr('id');
+        var deldata = "acao=deletar&del="+delid;
+        var liaction = $('li[class="J_'+delid+'"]');
+        
+        liaction.css("background", "red");
+        carregarUsuario("acao=ler&offset="+offset+"&limit=1");
+        
+        $.ajax({
+            data:           deldata,
+            beforeSend:     '',
+            error:          '',
+            success:        function(){
+                liaction.fadeOut('slow');
+            }
+        });
+    });
+
 });
 

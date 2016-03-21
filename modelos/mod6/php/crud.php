@@ -5,16 +5,19 @@ sleep(1);
 switch ($_POST['acao']){
     case 'cadastro':
         //print_r($_POST);
+        
+        
         $c['nome'] =            mysqli_real_escape_string( $link,  $_POST['nome']);
         $c['sobrenome'] =       mysqli_real_escape_string( $link,  $_POST['sobrenome']);
         $c['email'] =           mysqli_real_escape_string( $link,  $_POST['email']);
         $c['telefone'] =        mysqli_real_escape_string( $link,  $_POST['telefone']);
         $c['code'] =            mysqli_real_escape_string( $link,  $_POST['senha']);
         
-        if(in_array(empty($c),$c)){
+        if(in_array("",$c)){
             echo '1';
         }else{
             $c['senha'] = md5($c['code']);
+            date_default_timezone_set("America/Sao_Paulo");
             $c['data_cadastro'] = date('Y-m-d H:i:s');
             
             $campos = implode(', ', array_keys($c));
@@ -44,7 +47,7 @@ switch ($_POST['acao']){
         if(mysqli_num_rows($ex) >= 1){
             
             while($res = mysqli_fetch_assoc($ex)):
-                echo '<li>';
+                echo '<li class="J_'.$res['id'].'">';
                     echo '<h3>'.$res['nome'].' '.$res['sobrenome'].'</h3>';
                     echo '<div class="contatos">';
                         echo '<div class="email"><a href="mailto:'.$res['email'].'">'.$res['email'].'</a></div>';
@@ -52,7 +55,7 @@ switch ($_POST['acao']){
                     echo '</div><!-- /contatos -->';
                     echo '<div class="manage">';
                         echo '<div class="btnaction edit j_edit"><img src="img/edit.png" alt="Editar" title="Editar" /></div>';
-                        echo '<div class="btnaction delete j_delete"><img src="img/delete.png" alt="Excluir" title="Excluir" /></div>';
+                        echo '<div id="'.$res['id'].'" class="btnaction delete j_delete"><img src="img/delete.png" alt="Excluir" title="Excluir" /></div>';
                     echo '</div><!-- /manage -->';
                 echo '</li>';
             endwhile;
@@ -60,6 +63,14 @@ switch ($_POST['acao']){
             echo "3";
         }
     break;
+
+    case 'deletar':
+        $delid = $_POST['del'];
+        $qr = "DELETE FROM mod6_clientes WHERE id = $delid";
+        $ex = mysqli_query($link, $qr);
+
+        # code...
+        break;
     default :
         echo '2';
 }
