@@ -8,7 +8,7 @@ switch ($_POST['acao']){
         
         
         $c['nome'] =            mysqli_real_escape_string( $link,  $_POST['nome']);
-        $c['sobrenome'] =       mysqli_real_escape_string( $link,  $_POST['sobrenome']);
+        $c['sobrenome'] =      mysqli_real_escape_string( $link,  $_POST['sobrenome']);
         $c['email'] =           mysqli_real_escape_string( $link,  $_POST['email']);
         $c['telefone'] =        mysqli_real_escape_string( $link,  $_POST['telefone']);
         $c['code'] =            mysqli_real_escape_string( $link,  $_POST['senha']);
@@ -54,7 +54,7 @@ switch ($_POST['acao']){
                         echo '<div class="telefone">'.$res['telefone'].'</div>';
                     echo '</div><!-- /contatos -->';
                     echo '<div class="manage">';
-                        echo '<div class="btnaction edit j_edit"><img src="img/edit.png" alt="Editar" title="Editar" /></div>';
+                        echo '<div id="'.$res['id'].'" class="btnaction edit j_edit"><img src="img/edit.png" alt="Editar" title="Editar" /></div>';
                         echo '<div id="'.$res['id'].'" class="btnaction delete j_delete"><img src="img/delete.png" alt="Excluir" title="Excluir" /></div>';
                     echo '</div><!-- /manage -->';
                 echo '</li>';
@@ -63,7 +63,7 @@ switch ($_POST['acao']){
             echo "3";
         }
     break;
-
+    
     case 'deletar':
         $delid = $_POST['del'];
         $qr = "DELETE FROM mod6_clientes WHERE id = $delid";
@@ -71,6 +71,38 @@ switch ($_POST['acao']){
 
         # code...
         break;
+
+    case 'consulta':
+        $id = $_POST['editid'];
+        $qr = "SELECT * FROM mod6_clientes WHERE id = $id";
+        $ex = mysqli_query($link, $qr);
+        $st = mysqli_fetch_assoc($ex);
+        echo json_encode($st);
+        break;
+
+    case 'editar':
+        $id = $_POST['id'];
+
+
+        $u['nome'] =            mysqli_real_escape_string( $link,  $_POST['nome']);
+        $u['sobrenome'] =      mysqli_real_escape_string( $link,  $_POST['sobrenome']);
+        $u['email'] =           mysqli_real_escape_string( $link,  $_POST['email']);
+        $u['telefone'] =        mysqli_real_escape_string( $link,  $_POST['telefone']);
+        $u['code'] =            mysqli_real_escape_string( $link,  $_POST['code']);
+        $u['senha'] = md5($u['code']);
+
+        foreach ($u as $key => $value) {
+            $updates[] = "$key = '$value'";
+        }
+
+        $updates = implode(", ", $updates);
+        $qr  = "UPDATE mod6_clientes SET $updates WHERE id=$id";
+        $ex = mysqli_query($link, $qr);
+
+        //removendo do array
+        unset($u['senha']);
+        echo json_encode($u);
+    break;
     default :
         echo '2';
 }
