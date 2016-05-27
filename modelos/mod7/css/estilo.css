@@ -1,0 +1,64 @@
+/*GERAIS*/
+p{font:14px "Trebuchet MS", Arial, Helvetica, sans-serif;}
+
+/*DEBUG*/
+.resposta{padding:20px; background:#09F; color:#FFF; width:449px;}
+.resposta img{float:left; width:20px; margin-right:10px;}
+
+/*FORMULARIO*/
+form{padding:20px; background:#CCC; width:449px;}
+form label{display:block; padding:10px; background:#fbfbfb; margin-bottom:5px; float:left; width:429px;}
+form label .campo{float:left; width:70px; text-align:right; margin:3px 5px 0 0;}
+form label input, textarea{padding:5px; border:1px solid #CCC; width:340px;}
+form .btn{padding:10px; margin-top:10px; background:#09f; color:#FFF; border:none; cursor:pointer; font-weight:bold;}
+form .btn:hover{background:#900;}
+
+/*CAMPOS PARA RECEBER ARQUIVO*/
+form label .filebar{float:left; width:298px; display:block; background:#fff; border:1px solid #CCC; padding:6px;}
+form label .filebar{font:13px Verdana, Geneva, sans-serif; color:#999; min-height:16px;}
+form label .selectfile{float:right; margin-left:10px; cursor:pointer;}
+form label .selectfile:hover{background:#09F;}
+
+/*LOADER*/
+.carregando{width:489px; background:#900;}
+.carregando .progress{padding:5px; background:#060; width:0%; color:#fff; text-align:center; max-width:479px;}
+
+/*READER*/
+.readerbody{background:url(../img/bg5.jpg) repeat #066;}
+#reader{width:980px; margin:30px auto 30px auto; padding:10px; background:#fbfbfb; box-shadow:0 0 2px 2px #ccc; -moz-box-shadow:0 0 2px 2px #ccc; -webkit-box-shadow:0 0 2px 2px #ccc; position:relative;}
+#reader .menu{padding:5px; background:#09F; float:left; width:970px; list-style:none; margin-bottom:20px;}
+#reader .menu li{float:left; position:relative;}
+#reader .menu li a{float:left; padding:10px; background:#005279; margin:5px; width:164px; text-align:center;}
+#reader .menu li a{color:#FFF; text-decoration:none;}
+#reader .menu li a:hover{background:#06C;}
+#reader .loading{display:block; margin:0 0 20px 0; float:left; padding:10px; width:960px; text-align:center; background:url(../img/bg5.jpg) repeat;}
+#reader .loading img{display:block; margin:0 auto 5px auto;}
+#reader .lista{list-style:none; display:block; width:980px;}
+#reader .lista li{float:left; width:273px; margin:0 20px 20px 0; background:#fff; padding:16px; border:4px solid #FFF; min-height:300px;}
+#reader .lista .right{margin-right:0; float:right;}
+#reader .lista li h2{font:26px Tahoma, Geneva, sans-serif;}
+#reader .lista li img{margin-bottom:5px;}
+#reader .lista li p{margin:10px 0;}
+#reader .lista li .desc{color:#999;}
+#reader .lista li .data{color:#CCC;}
+#reader .lista li:hover{border:4px solid #333;}
+#reader .lista li a{color:#06F; font-size:14px;}
+#reader .lista li a:hover{color:#F60;}
+
+/*MANAGE*/
+#reader .lista li{position:relative;}
+#reader .lista li .manage{left:229px; top:106px; position:absolute; background:rgba(102,102,102,0.5); display:none;}
+#reader .lista li .manage{text-align:center;}
+#reader .lista li .manage a{margin:0; float:left;}
+#reader .lista li .manage img{margin:0; padding:5px;}
+#reader .lista li .manage img:hover{background:#09f;}
+#reader .lista li:hover .manage{display:block;}
+
+/*MODAL*/
+#reader form{font-size:14px;}
+#reader .modal{position:fixed; z-index:99; width:488px; left:50%; top:50%; height:356px; padding:20px; background:#FFF; margin-left:-264px; margin-top:-170px;}
+#reader .modal{box-shadow:0 0 2px 2px #ccc; -moz-box-shadow:0 0 2px 2px #ccc; -webkit-box-shadow:0 0 2px 2px #ccc;}
+#reader .modal .closemodal{position:absolute; right:20px; bottom:10px; text-decoration:none; color:#999; font-size:12px;}
+#reader .modal .closemodal:hover{color:#900;}
+#reader .modal .carregando{position:absolute; height:286px; top:78px;}
+#reader .modal .carregando .progress{padding:134px 5px;}
