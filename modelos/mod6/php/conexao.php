@@ -5,3 +5,4 @@ define('PASS', '1234');
 define('DBSA', 'projquery');
 
 $link  = mysqli_connect(HOST,USER,PASS,DBSA);
+?>

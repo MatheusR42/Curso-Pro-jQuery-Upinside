@@ -13,7 +13,7 @@
 <body>
 
 <div class="resposta">
-	<strong>CADASTR-SE</strong>
+	<strong>CADASTRAR USUARIOS</strong>
     <div class="msg"></div>
 </div>
 
@@ -22,28 +22,28 @@
     	<span class="campo">Nome:</span>
     	<input type="text" name="nome" />
     </label>
-    
+
     <label>
     	<span class="campo">Sobrenome:</span>
     	<input type="text" name="sobrenome" />
     </label>
-    
+
     <label>
     	<span class="campo">E-mail:</span>
     	<input type="text" name="email" />
     </label>
-    
+
     <label>
     	<span class="campo">Telefone:</span>
     	<input type="text" name="telefone" />
     </label>
-    
+
     <label>
     	<span class="campo">Senha:</span>
     	<input type="text" name="senha" />
     </label>
-    
-    <input type="button" value="Enviar Dados" class="btn j_buttom" />	
+
+    <input type="button" value="Enviar Dados" class="btn j_buttom" />
 </form>
 
 </body>
