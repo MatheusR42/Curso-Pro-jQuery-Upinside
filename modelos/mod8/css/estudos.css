@@ -1,0 +1,22 @@
+*{margin:0; padding:0; font-family:Verdana, Geneva, sans-serif;}
+body{background:url(../img/bg_site.png) repeat;}
+p{margin:10px 0;}
+*:focus{outline:none;}
+
+.box{width:860px; margin:50px auto 20px auto; padding:20px; background:rgba(255,255,255,0.8);}
+.box p{font:14px "Trebuchet MS", Arial, Helvetica, sans-serif; margin:10px 0;}
+.box h2{font:26px Tahoma, Geneva, sans-serif; color:#09F; margin-bottom:20px;}
+
+input[type=text]{padding:10px; border:none; background:#fff; width:200px;}
+
+.menu{width:100%; background:#09F; position:fixed; top:0px; left:0px; z-index:99;}
+.menu .nav{width:898px; margin:auto; list-style:none;}
+.menu .nav li{float:left;}
+.menu .nav li a{padding:9px; float:left; text-decoration:none; color:#FFF; font:13px "Trebuchet MS", Arial, Helvetica, sans-serif;}
+.menu .nav li a:hover{background:#900;}
+.menu .nav li .active{background:#006595;}
+
+.resultados{margin:20px 0; list-style:none; background:#FFF; padding:10px 10px 5px;}
+.resultados li{padding:10px; margin-bottom:5px; background:#fbfbfb;}
+
+.ui-widget{font-family: "Trebuchet MS", Arial, Helvetica, sans-serif; font-size: 17px;}
