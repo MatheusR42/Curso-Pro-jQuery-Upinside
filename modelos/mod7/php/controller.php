@@ -90,9 +90,22 @@ switch($_POST['acao']){
         echo '<p class="data">Enviado em: '.date('d/m/Y',strtotime($res['data_cadastro'])).' às '.date('H:i',strtotime($res['data_cadastro'])).'h</p>';
 
         echo '<a href="uploads/'.$res['imagem'].'"';
-          if($res['tipo'] == 'image') echo 'rel="shadowbox"';
-          if($res['tipo'] == 'video') echo 'rel="shadowbox;width=853;height=480"';
-        echo '>Abrir!</a>';
+
+          if($res['tipo'] == 'video'){
+            $extencao = pathinfo($res['imagem'], PATHINFO_EXTENSION);
+            if($extencao != 'mov'){
+              echo 'rel="shadowbox;player=flv;width=853;height=480"';
+              echo '>ABRIR</a>';
+            }else{
+              //echo 'rel="shadowbox;player=iframe;width=853;height=480"  target="_blank" download';
+              echo ' target="_blank"  download';
+              echo '>DOWNLOAD</a>';
+            }
+          }else{
+            if($res['tipo'] == 'image') echo 'rel="shadowbox"';
+            echo '>ABRIR</a>';
+          }
+
 
         echo '<div class="manage">';
           echo '<a class="actionedit" href="'.$res['id'].'"><img src="img/edit.png" alt="" title="" /></a>';

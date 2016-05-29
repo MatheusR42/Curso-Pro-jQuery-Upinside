@@ -1,4 +1,9 @@
-Shadowbox.init();
+var opts = {
+// all the rest of the extensions from the source file here...
+flv: ['flv','mp4','mov']
+};
+
+Shadowbox.init(opts);
 
 $(function(){1
 
