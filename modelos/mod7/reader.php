@@ -33,7 +33,9 @@
     	<div class="resposta">ENVIE SEU ARQUIVO:</div>
 
         <div class="carregando">
-            <div class="progress">0%</div>
+						
+            <div class="progress"></div>
+
         </div>
 
         <form name="enviardados" action="" method="post" enctype="multipart/form-data">

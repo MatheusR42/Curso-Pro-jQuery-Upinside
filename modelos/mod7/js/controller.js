@@ -49,6 +49,7 @@ $(document).ready(function(){
 	});
 
 	sender.submit(function(){
+		var restarForm = false;
 		$(this).ajaxSubmit({
 			url: 'php/controller.php',
 			data: {acao: 'cadastro'},
@@ -60,29 +61,40 @@ $(document).ready(function(){
 			},
 			uploadProgress: function(event, posicao, total, completo){
 				//loader.empty().text(event + ' - '+ posicao+ ' - '+ total+' - '+completo);
-				bar.fadeIn('fast');
+				bar.fadeIn('slow');
 				var porcentagem = completo+ '%';
-				per.width(porcentagem).text(porcentagem);
+				per.width(porcentagem);
+				loader.empty().text("Enviando: "+ porcentagem);
 			},
 			success: function( resposta ){
 				per.width("100%").text("100%");
 				if(resposta == 1){
 					loader.empty().text('Arquivo enviado com sucesso!').css('background','#33BD45');
 
-					$(this).find('input:text, textarea').val('');
+					//$(this).find('input:text, textarea').val('');
+
+					sender.find('input:text').val('');
+					sender.find('textarea').val('');
 					campoFile.empty();
 					bar.fadeOut('fast');
+					restarForm = true;
+					window.setTimeout(function(){
+						loader.empty().text('ENVIE SEU ARQUIVO: ').css('background','#09F');
+					},600);
 				}else{
-					loader.empty().text(resposta).css("background","#C22C2C").delay(1500).css('background','#D52B2B');
+					loader.text(resposta).css("background","#C22C2C").delay(1500).css('background','#D52B2B');
+					bar.fadeOut('slow');
 				}
 
 
 			},
 			complete: function(){
-
-				//ler
+				//LER
 			},
-			resetForm: true
+
+
+
+
 		});
 		return false;
 	});

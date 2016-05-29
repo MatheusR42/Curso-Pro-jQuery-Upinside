@@ -44,6 +44,7 @@ $(function(){1
 
 
   function lerdados(local){
+
     $.ajax({
       url: 'php/controller.php',
       data: 'acao=ler&tipo='+local,
@@ -52,11 +53,12 @@ $(function(){1
         alert('Erro ao ler dados');
       },
       beforeSend: function(){
-        lista.fadeOut('slow');
         loader.fadeIn('fast');
       },
       success: function(resposta){
-        lista.empty().append(resposta).fadeIn('slow');
+        lista.fadeTo(300,0.2,function(){
+          $(this).html(resposta).fadeTo(100, 1);
+        });
       },
       complete: function(){
         loader.fadeOut('slow');
@@ -69,13 +71,39 @@ $(function(){1
 
 
   lista.on('click', '.actionedit', function(){
-    alert('Editar este');
+    alert('Editar este' + $(this).attr('href'));
     return false;
   });
 
 
   lista.on('click', '.actiondelete', function(){
-    alert('Deletar este');
+    var id = $(this).attr('href');
+    var li = lista.find('li[class*="j_'+id+'"]');
+
+    $.ajax({
+      url: 'php/controller.php',
+      data: 'acao=deletar&deleteid='+id,
+      type: 'POST',
+      error: function(){
+        alert('Erro ao executar');
+      },
+      beforeSend: function(){
+        li.css('background', '#CF4949');
+      },
+      success: function(resposta){
+        li.fadeOut('slow', function(){
+          var local = window.location.hash;
+          local = local.replace('#','');
+          window.setTimeout(function(){
+            lerdados(local);
+          },500);
+        });
+      },
+      complete: function(){
+
+      }
+
+    });
     return false;
   });
 

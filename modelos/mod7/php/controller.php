@@ -20,7 +20,7 @@ switch($_POST['acao']){
 
     if(!$titulo || !$descricao){
 
-      echo 'preencha todos os campos';
+      echo 'Preencha todos os campos';
 
     }else{
 
@@ -113,6 +113,27 @@ switch($_POST['acao']){
         echo '</div>';
       echo '</li>';
     endwhile;
+
+
+
+  break;
+
+  case 'deletar':
+    $delid =  $_POST['deleteid'];
+
+    $qr = "SELECT * FROM mod7_imagens WHERE id = '$delid'";
+
+    $ex = mysqli_query($link, $qr) or die (mysqli_error($link));
+    $st = mysqli_fetch_assoc($ex);
+
+    $basepach = '../uploads/';
+    if(file_exists($basepach.$st['imagem']) && !is_dir($basepach.$st['imagem'])){
+      unlink($basepach.$st['imagem']);
+    }
+
+
+    $qr = "DELETE FROM mod7_imagens WHERE id = '$delid'";
+    $ex = mysqli_query($link, $qr) or die (mysqli_error($link));
 
 
 

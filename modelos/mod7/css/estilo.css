@@ -21,7 +21,8 @@ form label .selectfile:hover{background:#09F;}
 
 /*LOADER*/
 .carregando{width:489px; background:#900;}
-.carregando .progress{padding:5px; background:#060; width:0%; color:#fff; text-align:center; max-width:479px;}
+.carregando .progress{padding-bottom: 2px;background:#060; width:0%; height: 20px; }
+
 
 
 /*READER*/
@@ -69,5 +70,4 @@ form label .selectfile:hover{background:#09F;}
 #reader .modal{box-shadow:0 0 2px 2px #ccc; -moz-box-shadow:0 0 2px 2px #ccc; -webkit-box-shadow:0 0 2px 2px #ccc;}
 #reader .modal .closemodal{position:absolute; right:20px; top:10px; text-decoration:none; color:#999; font-size:12px;}
 #reader .modal .closemodal:hover{color:#900;}
-#reader .modal .carregando{position:absolute; height:286px; top:78px;}
-#reader .modal .carregando .progress{padding:134px 5px;}
+#reader .modal .carregando{ height:20px; }
