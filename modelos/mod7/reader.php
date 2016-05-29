@@ -18,6 +18,8 @@
 	*{margin:0; padding:0; font-family:Verdana, Geneva, sans-serif;}
 </style>
 
+
+
 </head>
 
 <body class="readerbody">
@@ -60,7 +62,7 @@
     </div>
 
     <ul class="menu">
-        <li><a class="nav" href="#cadastro">Cadastrar Mais</a></li>
+				<li><a class="nav" href="#cadastro">Cadastrar Mais</a></li>
         <li><a class="nav" href="#tudo">Ver Tudo</a></li>
         <li><a class="nav" href="#arquivos">Ver Arquivos</a></li>
         <li><a class="nav" href="#imagens">Ver Imagens</a></li>

@@ -7,7 +7,7 @@ $(function(){1
   var menu = $('.menu li a');
   var loader = $('.loading');
 
-  //lista.hide();
+  lista.hide();
   loader.hide();
   modal.hide();
 
@@ -21,7 +21,7 @@ $(function(){1
     var local = $(this).attr('href');
     local = local.replace('#','');
     if(local != 'cadastro'){
-      //LER BANCO
+      lerdados(local);
     }else{
       modal.fadeIn('slow');
       return false;
@@ -32,10 +32,36 @@ $(function(){1
   $('.closemodal').click(function(){
     var local = window.location.hash;
     local = local.replace('#','');
-    //LER BANCO
+    lerdados(local);
     modal.delay(300).fadeOut('slow');
     return false;
   });
+
+
+  function lerdados(local){
+    $.ajax({
+      url: 'php/controller.php',
+      data: 'acao=ler&tipo='+local,
+      type: 'POST',
+      error: function(){
+        alert('Erro ao ler dados');
+      },
+      beforeSend: function(){
+        lista.fadeOut('slow');
+        loader.fadeIn('fast');
+      },
+      success: function(resposta){
+        lista.empty().append(resposta).fadeIn('slow');
+      },
+      complete: function(){
+        loader.fadeOut('slow');
+      }
+
+    });
+  }
+
+  lerdados(local);
+
 
   lista.on('click', '.actionedit', function(){
     alert('Editar este');
@@ -47,4 +73,11 @@ $(function(){1
     alert('Deletar este');
     return false;
   });
+
+  lista.on('click', 'a[rel*="shadowbox"]', function(){
+    Shadowbox.open(this);
+    return false;
+  });
+
+
 });

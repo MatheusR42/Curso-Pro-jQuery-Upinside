@@ -67,6 +67,43 @@ switch($_POST['acao']){
     }
   break;
 
+  case 'ler':
+    $tipo = mysqli_real_escape_string($link, $_POST['tipo']);
+    $tipo = ($tipo == 'arquivos' ? 'arquivo' :
+        ($tipo == 'imagens' ? 'image' :
+        ($tipo == 'videos' ? 'video' : '')));
+
+    if($tipo): $where = "WHERE tipo = '$tipo'"; endif;
+
+    $qr = "SELECT * FROM mod7_imagens {$where} ORDER BY data_cadastro DESC";
+    $ex = mysqli_query($link, $qr) or die (mysqli_error($link));
+
+    while($res = mysqli_fetch_assoc($ex)):
+      $conta++;
+      $imagem = ($res['tipo'] == 'image' ? 'tim.php?src=uploads/'.$res['imagem'].'&w=273&h=120&a=t' :
+            ($res['tipo'] == 'arquivo' ? 'img/filethumb.jpg' : 'img/videothumb.jpg'));
+
+      echo '<li class="file j_'.$res['id']; if($conta%3==0) echo ' right'; echo '">';
+        echo '<img src="'.$imagem.'" alt="Baixar arquivo" title="Baixar Arquivo" width="273" height="120" />';
+        echo '<h2>'.$res['titulo'].'</h2>';
+        echo '<p class="desc">'.$res['descricao'].'</p>';
+        echo '<p class="data">Enviado em: '.date('d/m/Y',strtotime($res['data_cadastro'])).' às '.date('H:i',strtotime($res['data_cadastro'])).'h</p>';
+
+        echo '<a href="uploads/'.$res['imagem'].'"';
+          if($res['tipo'] == 'image') echo 'rel="shadowbox"';
+          if($res['tipo'] == 'video') echo 'rel="shadowbox;width=853;height=480"';
+        echo '>Abrir!</a>';
+
+        echo '<div class="manage">';
+          echo '<a class="actionedit" href="'.$res['id'].'"><img src="img/edit.png" alt="" title="" /></a>';
+          echo '<a class="actiondelete" href="'.$res['id'].'"><img src="img/delete.png" alt="" title="" /></a>';
+        echo '</div>';
+      echo '</li>';
+    endwhile;
+
+
+
+  break;
   default:
     echo "Erro, arquivo muito grande ou não compativel";
 
