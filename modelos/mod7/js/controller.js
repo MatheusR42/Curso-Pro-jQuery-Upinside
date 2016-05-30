@@ -10,6 +10,8 @@ $(document).ready(function(){
 	var bar = $('.carregando');
 	var per = $('.progress');
 
+
+
 	function msieversion()
 	{
     var ua = window.navigator.userAgent;
@@ -48,11 +50,24 @@ $(document).ready(function(){
 		});
 	});
 
+
+	$("form input[type=submit]").click(function() {
+    $("input[type=submit]", $(this).parents("form")).removeAttr("clicked");
+    $(this).attr("clicked", "true");
+	});
+
 	sender.submit(function(){
-		var restarForm = false;
+		var dados = 'cadastro';
+		var val = $("input[type=submit][clicked=true]").val();
+		var idUpdate = $('input[type=hidden]').val();
+		//alert(val);
+		if(val == 'Atualizar Dados'){
+			dados = 'editar';
+		}
+		
 		$(this).ajaxSubmit({
 			url: 'php/controller.php',
-			data: {acao: 'cadastro'},
+			data: {acao: dados},
 			beforeSubmit: function(){
 				loader.empty().css('background','#09F').html('<img src="img/load.gif" alt="carregando..." title="carregando...">Aguarde, enviando requisição</img>');
 			},
@@ -77,7 +92,7 @@ $(document).ready(function(){
 					sender.find('textarea').val('');
 					campoFile.empty();
 					bar.fadeOut('fast');
-					restarForm = true;
+
 					window.setTimeout(function(){
 						loader.empty().text('ENVIE SEU ARQUIVO: ').css('background','#09F');
 					},600);

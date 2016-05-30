@@ -33,7 +33,7 @@
     	<div class="resposta">ENVIE SEU ARQUIVO:</div>
 
         <div class="carregando">
-						
+
             <div class="progress"></div>
 
         </div>
@@ -56,8 +56,9 @@
                 <span class="campo">Descrição:</span>
                 <textarea name="descricao" role="3"></textarea>
             </label>
-
-            <input type="submit" value="Enviar Dados" class="btn" />
+						<input type="hidden" value="0" name="id"/>
+            <input type="submit" value="Enviar Dados" class="btn btn_cadastra" />
+						<input type="submit" value="Atualizar Dados" class="btn btn_edit" />
         </form>
 
 

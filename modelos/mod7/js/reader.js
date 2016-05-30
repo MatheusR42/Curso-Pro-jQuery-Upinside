@@ -11,7 +11,13 @@ $(function(){1
   var lista = $('.lista');
   var menu = $('.menu li a');
   var loader = $('.loading');
+  var sender = $('form[name="enviardados"]');
 
+  var btnEditar = $('.btn_edit');
+  var btnCadastra = $('.btn_cadastra');
+
+  btnEditar.hide();
+  btnCadastra.hide();
   lista.hide();
   loader.hide();
   modal.hide();
@@ -28,6 +34,8 @@ $(function(){1
     if(local != 'cadastro'){
       lerdados(local);
     }else{
+      btnCadastra.show();
+      btnEditar.hide();
       modal.fadeIn('slow');
       return false;
     }
@@ -38,6 +46,8 @@ $(function(){1
     var local = window.location.hash;
     local = local.replace('#','');
     lerdados(local);
+    sender.find('input:text').val('');
+    sender.find('textarea').val('');
     modal.delay(300).fadeOut('slow');
     return false;
   });
@@ -71,7 +81,38 @@ $(function(){1
 
 
   lista.on('click', '.actionedit', function(){
-    alert('Editar este' + $(this).attr('href'));
+    btnEditar.show();
+    btnCadastra.hide();
+    modal.fadeIn('slow');
+    $('input[type=hidden]').val($(this).attr('href'));
+    //alert($('input[type=hidden]').val());
+    //alert('Editar este' + $(this).attr('href'));
+
+    var id = $(this).attr('href');
+
+
+    $.ajax({
+      url: 'php/controller.php',
+      data: 'acao=consultar&consultaId='+id,
+      type: 'POST',
+      dataType: 'JSON',
+      error: function(){
+        alert('Erro ao executar');
+      },
+      beforeSend: function(){
+
+      },
+      success: function(resposta){
+        sender.find('input:text').val(resposta[1]);
+        sender.find('textarea').val(resposta[2]);
+      },
+      complete: function(){
+
+      }
+
+    });
+
+
     return false;
   });
 

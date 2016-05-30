@@ -138,6 +138,96 @@ switch($_POST['acao']){
 
 
   break;
+
+  case 'consultar':
+    $consultaId =  $_POST['consultaId'];
+
+    $qr = "SELECT * FROM mod7_imagens WHERE id = '$consultaId'";
+
+    $ex = mysqli_query($link, $qr) or die (mysqli_error($link));
+    $res = mysqli_fetch_assoc($ex);
+
+    $data = array();
+    $data[0] = $res['id'];
+    $data[1] = $res['titulo'];
+    $data[2] = $res['descricao'];
+
+    echo json_encode($data);
+
+
+  break;
+
+  case 'editar':
+    $titulo =  mysqli_real_escape_string( $link,  $_POST['titulo']);
+    $descricao = mysqli_real_escape_string( $link,  $_POST['descricao']);
+    $id = mysqli_real_escape_string($link, $_POST['id']);
+    $arquivo = $_FILES['arquivo'];
+
+    if(!$titulo || !$descricao){
+
+      echo 'Preencha todos os campos';
+
+    }else{
+
+      $pasta = '../uploads/';
+      if(!file_exists($pasta)) mkdir($pasta,0755);
+
+      if($arquivo['tmp_name']){
+        $extencao = pathinfo($arquivo['name'], PATHINFO_EXTENSION);
+        $filename = md5(time()).'.'.$extencao;
+
+        $imagem = array('jpg','jpeg', 'gif','png');
+        $video = array('mp4', 'avi', '3gp', 'flv', 'wmv', 'mov');
+
+        if(in_array($extencao,$imagem)):
+          $pasta = $pasta.'images/';
+          $tipo = 'image';
+        elseif(in_array($extencao, $video)):
+          $pasta = $pasta.'videos/';
+          $tipo = 'video';
+        else:
+          $pasta = $pasta.'arquivos/';
+          $tipo = 'arquivo';
+        endif;
+
+        if(!file_exists($pasta)) mkdir($pasta,0755);
+
+        if(move_uploaded_file($arquivo['tmp_name'], $pasta.$filename)){
+          $imagem = $tipo.'s/'.$filename;
+          date_default_timezone_set("America/Sao_Paulo");
+          $data = date('Y-m-d H:i:s');
+
+
+          $qr = "SELECT * FROM mod7_imagens WHERE id = '$id'";
+
+          $ex = mysqli_query($link, $qr) or die (mysqli_error($link));
+          $st = mysqli_fetch_assoc($ex);
+
+          $basepach = '../uploads/';
+          if(file_exists($basepach.$st['imagem']) && !is_dir($basepach.$st['imagem'])){
+            unlink($basepach.$st['imagem']);
+          }
+
+          $qr = "UPDATE  mod7_imagens SET titulo='$titulo', descricao= '$descricao', tipo='$tipo', imagem='$imagem'";
+          $qr.= "WHERE id='$id'";
+
+          $ex = mysqli_query($link, $qr) or die(mysqli_error($link));
+
+
+
+
+          echo '1';
+
+        }else{
+          echo 'Erro ao enviar arquivo';
+        }
+
+      }else{
+        echo 'Selecione um arquivo';
+      }
+    }
+
+  break;
   default:
     echo "Erro, arquivo muito grande ou não compativel";
 
