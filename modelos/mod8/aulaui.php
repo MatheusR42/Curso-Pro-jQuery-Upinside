@@ -10,6 +10,7 @@
 
 <link rel="stylesheet" type="text/css" href="css/jquery-ui-style.css" />
 <link rel="stylesheet" type="text/css" href="css/estudos.css" />
+<link rel="stylesheet" type="text/css" href="css/normalize.css" />
 
 </head>
 
@@ -71,12 +72,14 @@
 
 <!-- AUTOCOMPLETE -->
 <div class="box bloco" id="autocomplete">
-	<h2>jQuery UI - Auto complete</h2>
+	<form name="autocomplete" action="" method="post">
+		<h2>jQuery UI - Auto complete</h2>
     <input type="text" class="j_autocomplete" name="search" />
-
+		<input type="image"  src="img/search.png" class="j_btn_autocomplete"  />
     <ul class="resultados">
     	<li>Robson Vidaletti Leite - <strong>54 3381.2185</strong></li>
     </ul>
+	</form>
 
 </div><!-- /box -->
 

@@ -80,6 +80,53 @@ $(function(){
 
 	});
 
+	//autocomplete
+
+	var resultados = ["UpInside", "Campus", "Cursos", "PRO"];
+	var apresenta	= $('.resultados');
+	apresenta.hide();
+	apresenta.html('<li style="color:green"> Aguarde, Carregando...</li>');
+
+	$('.j_autocomplete').autocomplete({
+		//source: resultados
+		//source: 'php/completar.php'
+		source: 'php/controller.php?acao=completar',
+		select: function(event, ui){
+
+			/*
+			$.ajax({
+				url: 'php/controller.php',
+				data: 'acao=pesquisar&valor='+pegar,
+				success: function(resposta){
+					apresenta.fadeTo(500,0.5,function(){
+						$(this).html(resposta).fadeTo(500,1);
+					})
+				}
+			});
+			*/
+
+			var pegar = ui.item.value;
+			pegarDados(pegar);
+		},
+		//change: function( dados ){pegarDados($(this).val());}
+	});
+	var autocomplete = $('form[name="autocomplete"]');
+
+	autocomplete.submit(function(){
+		pegarDados($('.j_autocomplete').val());
+		return false;
+	});
 
 
+	function pegarDados(dados){
+		$.ajax({
+			url: 'php/controller.php',
+			data: 'acao=pesquisar&valor='+dados,
+			success: function(resposta){
+				apresenta.fadeTo(500,0.5,function(){
+					$(this).html(resposta).fadeTo(500,1);
+				})
+			}
+		});
+	}
 });

@@ -1,8 +1,7 @@
 <?php
-define('HOST','localhost');
-define('USER','root');
-define('PASS','');
-define('DBSA','projquery');
+define('HOST', '127.0.0.1');
+define('USER', 'root');
+define('PASS', '1234');
+define('DBSA', 'projquery');
 
-$conexao = mysql_connect(HOST,USER,PASS);
-$banco = mysql_select_db(DBSA);
+$link  = mysqli_connect(HOST,USER,PASS,DBSA);
