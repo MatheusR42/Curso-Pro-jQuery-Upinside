@@ -5,6 +5,7 @@
 <title>jQuery User Interface</title>
 
 <script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.ui.datepicker-pt-BR.js"></script>
 <script type="text/javascript" src="js/jquery-ui.js"></script>
 <script type="text/javascript" src="js/estudos.js"></script>
 

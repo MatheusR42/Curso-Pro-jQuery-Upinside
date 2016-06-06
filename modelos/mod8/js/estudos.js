@@ -157,4 +157,63 @@ $(function(){
 
 	$('#button .gchecks').buttonset();
 	$('#button .gradios').buttonset();
+
+	//datepicker
+
+	//EX1
+	//$('.j_datepicker').datepicker();
+
+	$('.j_datepicker').datepicker({
+		showAnim: 'explode',
+		showOtherMonths: true,
+		selectOtherMonths: false,
+		showButtonPanel: true,
+		changeMonth: false,
+		changeYear:false,
+		numberOfMonths: 1,
+		dateFormat: 'dd/mm/yy'
+	});
+
+	//EX2
+	$('.j_datepickerout').datepicker({
+		showAnim: 'fadeIn',
+		showOtherMonths: true,
+		selectOtherMonths: true,
+		showButtonPanel: true,
+		changeMonth: true,
+		changeYear:true,
+		numberOfMonths: 1,
+		dateFormat: 'dd/mm/y',
+		showOn: 'button',
+		buttonImage: 'img/calendar.png',
+		buttonImageOnly: true,
+		altField: '.alternate',
+		altFormat: 'DD/D MM/yy',
+		minDate: '-30',
+		maxDate: '30'
+	});
+
+	$('.ui-datepicker-trigger').css({padding: '8px', 'padding-bottom':  '9px', background: 'white', float: 'left', cursor: 'pointer'});
+
+	$('.ui-datepicker-trigger').mouseover(function(){
+		$(this).animate({backgroundColor: 'red'},500);
+	}).mouseleave(function(){
+		$(this).animate({backgroundColor: 'white'},500);
+	});
+
+	$('.j_datepickerout').css({float: 'left', width: '162px'});
+
+	//EX3
+
+	//$('.j_datepickerin').datepicker();
+
+	$('.j_datepickerin').datepicker({
+			onSelect: function(event, ui){
+				//console.log(ui);
+				var dia = ui.selectedDay;
+				var mes = ui.selectedMonth + 1;
+				var ano = ui.selectedYear;
+				console.log('Você selecionou: '+dia+ '/'+ mes+ '/'+ ano);
+			}
+	});
 });
