@@ -129,4 +129,32 @@ $(function(){
 			}
 		});
 	}
+
+	//buttons
+	$('#button input:submit').button();
+	$('#button input:button').button().click(function(){alert('botão')});
+
+	$('#button button:first').button({
+		icons:{
+			primary: 'ui-icon-gear',
+			secondary: 'ui-icon-triangle-1-s'
+		},
+		text: true
+	});
+
+	$('#button button:last').button({
+		icons:{
+			primary: 'ui-icon-locked'
+		},
+		text: false
+	});
+
+	$('#button a').button({
+		icons: {
+			primary: 'ui-icon-signal-diag'
+		}
+	});
+
+	$('#button .gchecks').buttonset();
+	$('#button .gradios').buttonset();
 });
