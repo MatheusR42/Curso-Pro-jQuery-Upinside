@@ -216,4 +216,79 @@ $(function(){
 				console.log('Você selecionou: '+dia+ '/'+ mes+ '/'+ ano);
 			}
 	});
+
+
+	//MODAIS E CALLBACKS
+	$('#modais button').button();
+	//$('#modais p:first').dialog();
+	$('#modais p:first').hide();
+
+	//EX1
+	$('.nav li a').click(function(){
+		if($(this).attr('href') == '#modais'){
+			var retorno = $('#modais p:first').html();
+			$('#modais').prepend('<p>'+retorno+'</p>');
+			$('#modais p:first').hide();
+			window.setTimeout(function(){$('#modais p:first').dialog().hide().fadeIn('slow');}, 1100);
+		}
+	});
+
+	//EX2
+	$('.dial').dialog({
+		autoOpen: false,
+		buttons: {
+			'Ok': function(){
+				$(this).dialog('close');
+			}
+		}
+	});
+
+	$('#modais .abrir').click(function(){
+		$('.dial').dialog('open');
+	});
+
+	//EX3
+	var atack = $('#modais .deletar');
+
+	atack.dialog({
+		modal: true,
+		autoOpen: false,
+		show: 'bouce',
+		hide: 'explode',
+		buttons: {
+			'Sim': function() {
+				alert('apagado');
+				$(this).dialog('close');
+			},
+			'Não': function(){
+				$(this).dialog('close');
+			}
+		}
+
+	});
+
+	$('#modais .confirmar').click(function(){
+		atack.dialog('open');
+	});
+
+	//EX4
+
+	var erro = $('.errocaixa');
+
+	erro.dialog({
+		modal: true,
+		autoOpen: false,
+		show: 'bouce',
+		hide: 'explode',
+		buttons: {
+			'Ok': function(){
+				$(this).dialog('close');
+
+			}
+		}
+	});
+
+	$('#modais .erro').click(function(){
+		erro.dialog('open');
+	});
 });
