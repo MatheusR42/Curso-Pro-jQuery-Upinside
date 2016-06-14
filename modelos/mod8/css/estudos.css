@@ -22,3 +22,10 @@ input[type=text]{padding:10px; border:none; background:#fff; width:200px;}
 .ui-widget{font-family: "Trebuchet MS", Arial, Helvetica, sans-serif; font-size: 17px;}
 
 .j_btn_autocomplete{background: #069; width: 40px; height: 40px;position: absolute}
+
+.ui-menu{width: 300px;}
+.ui-datepicker{width:18em; padding: .5em .5em .2em;}
+
+.ui-progressbar{width: 304px; margin-bottom: 5px;}
+.progresso2{height: 1.5em; border-color: #F60; }
+.progresso2 .ui-progressbar-value{background: url('../img/pbar-ani.gif')  center; border-color:  #F60;}

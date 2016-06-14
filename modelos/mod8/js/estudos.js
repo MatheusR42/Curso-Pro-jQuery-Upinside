@@ -291,4 +291,22 @@ $(function(){
 	$('#modais .erro').click(function(){
 		erro.dialog('open');
 	});
+
+
+	//Menus e barras de progresso
+
+	//$('.menuui').menu();
+
+	$('.menuui').menu({
+		icons: {submenu: 'ui-icon-circle-triangle-e'},
+		position: {my: 'left+2 top', at: 'right top'}
+	});
+
+	$('.progresso').progressbar({
+		value: 50
+	});
+
+	$('.progresso2').progressbar({
+		value: 75
+	});
 });
