@@ -29,3 +29,6 @@ input[type=text]{padding:10px; border:none; background:#fff; width:200px;}
 .ui-progressbar{width: 304px; margin-bottom: 5px;}
 .progresso2{height: 1.5em; border-color: #F60; }
 .progresso2 .ui-progressbar-value{background: url('../img/pbar-ani.gif')  center; border-color:  #F60;}
+.ui-slider .ui-slider-handle{height: 1.6em}
+.ui-slider-horizontal{height: 1.2em}
+.ui-slider-vertical{height: 200px;margin: 10px 0 0 40px}

@@ -1,7 +1,7 @@
 <?php
-define('HOST', '127.0.0.1');
+define('HOST', 'localhost');
 define('USER', 'root');
-define('PASS', '1234');
+define('PASS', '');
 define('DBSA', 'projquery');
 
 $link  = mysqli_connect(HOST,USER,PASS,DBSA);

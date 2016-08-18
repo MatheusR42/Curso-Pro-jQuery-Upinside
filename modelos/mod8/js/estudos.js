@@ -3,7 +3,7 @@ $(function(){
 
 	//ESTRUTURAS E ESTILOS
 	//height da box
-	console.log({}+[] );
+
 	$('.bloco').each(function(){
 		var altura = $(window).height();
 		altura -= 110;
@@ -11,8 +11,6 @@ $(function(){
 	});
 
 	$('a').click(function(){
-
-
 		return false;
 	});
 
@@ -309,4 +307,61 @@ $(function(){
 	$('.progresso2').progressbar({
 		value: 75
 	});
+
+
+	//Sidder
+	$('.simples').slider();
+
+	$('.rangeslide').slider({
+		range: true,
+		values: [50,5000],
+		min:50,
+		max: 5000,
+		orientation: 'horizontal',
+		slide: function(event, ui){
+			var minimo = ui.values[0];
+			var maximo = ui.values[1];
+			$('.range p span').text('$ '+ minimo+' - $ '+ maximo);
+		}
+	});
+
+	var inicialMinimo = $('.rangeslide').slider('values', 0);
+	var inicialMaximo = $('.rangeslide').slider('values', 1);
+	$('.range p span').text('$ '+ inicialMinimo+' - $ '+ inicialMaximo);
+
+	$('.fixed .maxslide').slider({
+		range: 'max',
+		min: 10,
+		max: 50,
+		slide: function(envent, ui){
+			var valor = ui.value;
+			$('.fixed strong:first').text(valor);
+		}
+	});
+
+	$('.fixed .minslide').slider({
+		range: 'min',
+		min: 51,
+		max: 100,
+		value: 61,
+		slide: function(envent, ui){
+			var valor = ui.value;
+			$('.fixed strong:last').text(valor);
+		}
+	});
+
+	$('.valfix strong:first').text($('.fixed .minslide').slider('value'));
+	$('.valfix strong:last').text($('.fixed .maxslide').slider('value'));
+
+	$('.vertical').slider({
+		orientation: 'vertical',
+		range: 'min',
+		min: 0,
+		max: 100,
+		value: 50,
+		slide: function(event, ui){
+			$('.volume').text('Volume: ' + ui.value);
+		}
+	});	
+	$('.volume').text('Volume: ' + $('.vertical').slider('value'));
 });
