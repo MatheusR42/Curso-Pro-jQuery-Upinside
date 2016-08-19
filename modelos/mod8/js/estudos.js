@@ -364,4 +364,37 @@ $(function(){
 		}
 	});	
 	$('.volume').text('Volume: ' + $('.vertical').slider('value'));
+
+	//Spinners
+	$('.spisimples input').spinner();
+
+	$('.spiopcoes .numerico').spinner({
+		step:0.5,
+		min: 1,
+		max: 5,
+		stop: mostrar
+	});
+
+	function mostrar(){
+		var valor = $('.spiopcoes .numerico').val();
+		$('.spiopcoes strong').text(valor);
+	}
+
+	$('.spiopcoes button').button().click(function(){
+		if($('.spiopcoes .numerico').spinner('option','disabled')){
+			$('.spiopcoes .numerico').spinner('enable');
+		}else{
+			$('.spiopcoes .numerico').spinner('disable');
+		}
+	});
+
+	$('.spidecimal .decimal').spinner({
+		min: 10,
+		max: 50,
+		step: 10,
+		stop: function(){
+			$('.estevalor').text('R$: '+$(this).val()+ ',00');
+		}
+	})
+	
 });
