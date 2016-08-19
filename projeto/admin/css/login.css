@@ -11,7 +11,7 @@ a{border:none; margin:0;}
 .loginbox{position:absolute; left:50%; top:50%; background:rgba(255,255,255,0.9); width:360px; height:220px;}
 .loginbox{margin-left:-180px; margin-top:-125px;}
 .loginbox h1{padding:20px; font-weight:200; color:#FFF; background:#06F;}
-.loginbox h1 img{float:right; margin:7px 0;}
+.loginbox h1 img{float:right; margin:7px 0;display: none}
 .loginbox form{padding:20px;}
 .loginbox form .label{display:block; margin-bottom:10px; float:left; width:320px;}
 .loginbox form .label .field{float:left; width:60px; text-align:right; font-size:20px; margin:7px 10px 3px 3px;}

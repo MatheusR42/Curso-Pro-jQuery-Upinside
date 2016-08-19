@@ -1,7 +1,7 @@
 $(function(){
 	//CONTROLA O LOGIN
 	//$('.msg').hide().empty();
-	$('.loginbox h1 img').hide();
+	/*$('.loginbox h1 img').hide();
 	
 	$('form[name="login"]').submit(function(){
 		$('.loginbox h1 img').fadeIn("fast",function(){
@@ -13,5 +13,5 @@ $(function(){
 		});		
 		return false;
 	});
-	
+	*/
 });
