@@ -1,0 +1,88 @@
+/*  404  */
+.bloco_erro{width:1000px; padding:20px 0;}
+.bloco_erro h2{font-size:36px; font-weight:600; color:#fff; float:right; margin-bottom:20px;}
+.bloco_erro ul{float:left; width:1000px; list-style:none; display:inline;}
+.bloco_erro ul li{float:left; width:230px; background:rgba(255,255,255,0.5); margin-right:26px;}
+.bloco_erro ul li a{color:#000; font-weight:bold; font-size:18px;}
+.bloco_erro ul li a:hover{color:#FFF;}
+.bloco_erro ul li .licontent{padding:5px 10px 15px 10px;}
+
+/*  CATEGORIA  */
+.categorias{width:1000px; padding:20px 0; margin:20px 0 70px 0;}
+.categorias ul{float:left; width:1000px; list-style:none; display:inline;}
+.categorias ul li{float:left; width:220px; background:rgba(255,255,255,0.5); margin-right:40px; margin-bottom:40px;}
+.categorias ul li a{color:#000; font-weight:bold; font-size:18px;}
+.categorias ul li a:hover{color:#FFF;}
+.categorias ul li .licontent{padding:5px 10px 15px 10px;}
+
+.categorias .paginator{display:block; font-size:40px; font-weight:900; margin-bottom:20px; text-align:center;}
+.categorias .paginator a, .categorias .paginator .atv{text-decoration:none; color:#fff; margin:0 10px;}
+.categorias .paginator a:hover{border-bottom:5px solid #fff; border-top:5px solid #fff;}
+.categorias .paginator .atv{border-bottom:5px solid #000; border-top:5px solid #000; color:#000;}
+
+/*  ARTIGO  */
+.single{margin:80px 0 120px;}
+.single .sidebar{float:right; width:280px; list-style:none;}
+.single .sidebar li{float:left; width:280px; background:#fff; margin-bottom:20px;}
+.single .sidebar li h3{padding:15px; background:#09F; color:#FFF; font-size:20px; font-weight:600;}
+.single .sidebar li .related{float:left; width:240px; list-style:none; margin:0;}
+.single .sidebar li .related li{float:left; width:240px; padding:0; margin-bottom:20px; padding-bottom:20px; border-bottom:1px solid #CCC;}
+.single .sidebar li .related li p{margin:0; padding:0; font-size:14px;}
+.single .sidebar li .related li a{margin:0; margin:5px 0; float:left; width:240px; padding:0; font:20px 'Dosis',san-serif; color:#069; font-weight:400; text-decoration:none;}
+.single .sidebar li .social{float:left; margin:0; padding:0; list-style:none; width:240px;}
+.single .sidebar li .social li{float:left; width:80px; text-align:center;}
+
+.single .artigo{float:left; width:700px; background:rgba(255,255,255,0.9);}
+.single .artigo h1{padding:20px; background:#000; color:#fff; font-size:40px; font-weight:200;}
+.single .content{padding:20px;}
+.single .content h2{color:#000; font-size:36px; font-weight:200;}
+.single .content h3{font-weight:600; font-size:30px; padding:10px; background:#06F; color:#fff;}
+.single .content p{margin:20px 0; font-size:16px; color:#333;}
+.single .content strong{font-weight:600;}
+.single .content a{color:#069; font-weight:600;}
+.single .content a:hover{color:#F90;}
+.single .content ul{margin:20px 30px;}
+.single .content ol{margin:20px 35px;}
+.single .content img{max-width:660px;}
+.single .content blockquote{}
+.single .content address{}
+.single .content pre{}
+
+.single .content .gallery{float:left; width:660px; list-style:none; margin:0; padding:0;}
+.single .content .gallery li{float:left;}
+.single .content .gallery li a{padding:10px; background:#000; float:left;}
+.single .content .gallery li a:hover{background:#09F;}
+.single .content .gallery li img{float:left;}
+.single .content .gallery .right{float:right;}
+.single .content .gallery .left{float:left;}
+
+.single .comments h3{font-size:50px; font-weight:400; color:#fff; padding:20px; background:#000; margin:20px 0 0 0;}
+.single .comments h3 a{float:right; font-size:20px; text-transform:uppercase; padding:20px 40px; background:#06F; text-decoration:none; font-weight:bold; color:#FFF;}
+.single .comments h3 a:hover{background:#F60;}
+.single .comments .commentlist{list-style:none;}
+.single .comments .commentlist .li{padding:20px; border-bottom:3px solid #CCC;}
+
+.single .comments .commentlist .li .user{float:left; margin-bottom:20px; width:660px;}
+.single .comments .commentlist .li .user img{float:left; padding:5px; background:#06F; margin-right:10px;}
+.single .comments .commentlist .li .user .info{width:570px; float:right; background:#fbfbfb; font-size:20px;}
+.single .comments .commentlist .li .user .info strong{background:#333; color:#FFF; padding:22px; float:left; font-weight:200;}
+.single .comments .commentlist .li .user .info span{float:left; padding:22px 10px;}
+.single .comments .commentlist .li p{display:block; margin:10px 0 0 0; font-size:14px;}
+.single .comments .commentlist .resposta{padding:20px; background:#D7EBFF; margin-top:20px;}
+.single .comments .commentlist .resposta .user{float:left; margin-bottom:20px; width:630px;}
+.single .comments .commentlist .resposta .user .info{width:550px; float:left; background:#CAE4FF; font-size:16px;}
+.single .comments .commentlist .resposta .user .info strong{background:#069; color:#FFF; padding:14px; float:left; font-weight:200;}
+.single .comments .commentlist .resposta .user .info span{float:left; padding:14px;}
+.single .comments .commentlist .resposta .user img{float:right; padding:4px; background:#06F; margin-right:10px;}
+
+.commentbox{position:fixed; left:0px; top:0px; width:100%; height:100%; background:rgba(0,102,255,0.5); z-index:99;}
+.commentbox h3{font-size:80px; color:#FFF; font-weight:600; text-align:center; text-shadow:1px 1px 0 #000; margin-top:10px;}
+.commentbox form{padding:30px; background:#fff; position:absolute; left:50%; top:50%; margin-left:-230px; margin-top:-185px; width:400px; height:350px;}
+.commentbox form label{display:block; margin-bottom:10px;}
+.commentbox form label .field{display:block; margin-bottom:5px; font-size:18px;}
+.commentbox form label input, .commentbox form label textarea{width:380px; padding:10px; border:1px solid #333;}
+.commentbox form .btn{float:left; cursor:pointer; border:none; font-size:16px; text-transform:uppercase; margin-top:5px; padding:10px 15px; background:#06F; text-decoration:none; font-weight:bold; color:#FFF;}
+.commentbox form .btn:hover{background:#F60;}
+.commentbox form .imgload{float:left; width:25px; margin:12px;}
+.commentbox form .closecomment{position: absolute; bottom:-40px; text-transform:uppercase; text-decoration:none; color:#999; font-weight:600; right:0px; padding:10px 20px; background:#FFF;}
+.commentbox form .closecomment:hover{background:#333; color:#FFF;}

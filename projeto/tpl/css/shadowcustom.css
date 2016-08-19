@@ -1,0 +1,6 @@
+/*  SHADOWBOX  */
+#sb-body{background:#fff;}
+#sb-wrapper-inner{padding:20px; background:#fff; border:none;}
+#sb-loading{background:#fff;}
+#sb-loading-inner{color:#000;}
+#sb-loading-inner span{padding:35px; background:url(../images/loader2.gif) top center no-repeat; font-size:20px; margin-top:-18px;}

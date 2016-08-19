@@ -1,0 +1,157 @@
+/*  RESETA E GERAL  */
+*{margin:0; padding:0; font-family:'Dosis',san-serif;}
+*:hover{-webkit-transition: all 250ms ease 15ms; -moz-transition: all 250ms ease 15ms; -o-transition: all 250ms ease 15ms; transition: all 250ms ease 15ms;}
+*:focus{outline:none;}
+
+body{background:url(../images/body_background.png) center left fixed no-repeat;}
+a img{border:none;}
+a{border:none; margin:0;}
+
+.body{position:fixed; top:0px; left:0px; width:100%; height:100%; z-index:-1; background:url(../images/body_bg_style.png) repeat;}
+.radius{border-radius:6px; -moz-border-radius:6px; -webkit-border-radius:6px;}
+.clear{clear:both;}
+
+/*  MODALCONTATO  */
+.contato{position:fixed; left:0px; top:0px; z-index:101; background:rgba(255,255,255,0.9); height:100%; padding:0 30px;}
+.contato .closecontato{position:absolute; text-align:center; border:10px solid #fff; width:120px; padding:12px 15px 11px; font-size:20px; font-weight:600; color:#FFF; text-decoration:none; background:#900; right:-170px; bottom:0px;}
+.contato .closecontato:hover{background:#09F;}
+
+.contato{float:left; width:406px;}
+.contato h2{font-size:50px; font-weight:200; margin-top:30px;}
+.contato p{font-size:16px; font-weight:200; color:#666; margin:10px 0 20px 0;}
+.contato form{background:rgba(255,255,255,0.3); padding:20px;}
+.contato form label{display:block; margin-bottom:10px;}
+.contato form label span{display:block; margin-bottom:5px; font-size:16px;}
+.contato form label input, .contato form label textarea{width:342px; padding:8px; font-size:15px; border:1px solid #CCC;}
+.contato form .btn{padding:10px; float:left; margin-top:10px; border:none; background:#09F; font-size:18px; color:#FFF; text-transform:uppercase; cursor:pointer;}
+.contato form .btn:hover{background:#069;}
+.contato form .imgload{width:25px; margin:20px 0 0 18px; float:left;}
+
+/* MYDIALOG */
+.dialog{position:fixed; left:0px; top:0px; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:104;}
+.dialog .msg{background:#fff; position:absolute; left:50%; top:50%; width:400px; height:160px;}
+.dialog .msg{padding:20px; margin-left:-210px; margin-top:-80px;}
+.dialog .msg .tt{display:block; margin-bottom:10px; padding-bottom:5px; border-bottom:1px solid #CCC; font-size:40px; font-weight:600;}
+.dialog .msg p{font-size:18px; font-weight:400; margin-top:10px;}
+
+.dialog .msg .closedial{position:absolute; right:15px; top:15px; padding:5px 10px; background:#ccc;}
+.dialog .msg .closedial{text-decoration:none; color:#fff; font-weight:200;}
+.dialog .msg .closedial:hover{background:#09F; color:#fff;}
+
+.dialog .accept{color:#0C0;}
+.dialog .accept .tt{padding-left:45px; background:url(../images/ms_icon_accept.png) center left no-repeat;}
+.dialog .alert{color:#F90;}
+.dialog .alert .tt{padding-left:45px; background:url(../images/ms_icon_alert.png) center left no-repeat;}
+.dialog .error{color:#900;}
+.dialog .error .tt{padding-left:45px; background:url(../images/ms_icon_error.png) center left no-repeat;}
+
+/*  SLIDE HOME  */
+.homeslide{display:block; overflow:hidden; position:relative; border-bottom:12px solid #072F3B; float:left; width:100%; background:#000 url(../images/loader.gif) left 10px top 10px no-repeat;}
+.homeslide li{float:left; width:100%; height:350px; overflow:hidden; position:relative;}
+.homeslide li .info{position:absolute; left:0px; bottom:0px; z-index:99; background:rgba(0,0,0,0.7); width:100%; color:#fff;}
+.homeslide li .info .content{width:1000px; margin:0 auto; padding:20px 0;}
+.homeslide li .info .content .texto{float:left; width:800px;}
+.homeslide li .info .content a{color:#FFF; text-decoration:none; font-size:30px; text-transform:uppercase; font-weight:600;}
+.homeslide li .info .content a:hover{color:#09F;}
+.homeslide li .info .content p{color:#ccc;}
+.homeslide li .info .content .slidequerynav{float:right;}
+.homeslide li .info .content .slidequerynav a{font-size:1px;}
+.homeslide li .info .content .slidequerynav a{background:#FFF; width:30px; height:30px; float:left; text-decoration:none; color:#fff; margin:12px 0 0 12px;}
+.homeslide li .info .content .slidequerynav a:hover{background:#900; color:#900;}
+.homeslide li .info .content .slidequerynav a.activeSlide{background:#09F; color:#09F;}
+
+/*  #HEADER  */
+#header{width:100%; display:block; float:left; background:rgba(0,0,0,0.5); position:relative;}
+#header .content{width:1000px; margin:0 auto;}
+#header .content .logo{float:left; padding:30px 30px 20px; background:rgba(0,102,255,0.5); position:absolute;}
+
+#header .content .navtopo{float:left; margin-left:280px; list-style:none;}
+#header .content .navtopo li{float:left;}
+#header .content .navtopo li a{float:left; padding:10px 25px; font-size:28px; color:#FFF; text-decoration:none;}
+#header .content .navtopo li a:hover{background:rgba(0,64,128,0.7)}
+#header .content .navtopo .active{background:rgba(255,32,32,0.5);}
+
+#header .content form{float:right; background:#fbfbfb; margin:8px 0;}
+#header .content form input{padding:10px; border:none; text-transform:uppercase;}
+#header .content form input[type=text]{width:138px; padding:11px; float:left; background:#fbfbfb;}
+#header .content form .btn{width:40px; cursor:pointer; height:40px; padding:0; background:#fbfbfb url(../images/s_btn.png) center center no-repeat;}
+#header .content form .btn:hover{background-color:#06F;}
+
+/*  #SITE  */
+#site{width:1000px; margin:0 auto;}
+
+/*  .HOME  */
+#site .home{width:1000px; display:block; position:relative; float:left;}
+#site .home .bloco_um{width:1000px; display:block; float:left; position:relative;}
+#site .home .bloco_um h1{font:200 200px 'Dosis',san-serif; color:#FFF; position:absolute; z-index:-2; left:-15px; bottom:-100px;}
+#site .home .bloco_um h2{width:610px; padding:23px 22px; background:rgba(0,0,0,0.5); position:absolute; bottom:0px; left:150px;}
+#site .home .bloco_um h2{font:600 20px 'Dosis',san-sefif; color:#FFF;}
+#site .home .bloco_um .capa{float:right; width:200px; background:#9C0; position:relative;}
+#site .home .bloco_um .capa a{position:absolute; left:0px; bottom:0px; padding:25px 10px; background:rgba(255,81,81,0.8);}
+#site .home .bloco_um .capa a{text-decoration:none; font-size:18px; color:#FFF; text-transform:uppercase; font-weight:bold;}
+#site .home .bloco_um .capa a:hover{padding:47px 10px 48px;}
+#site .home .bloco_um .capa a p{font:200 16px 'Dosis',san-serif; text-transform:none; margin-top:15px; display:none;}
+#site .home .bloco_um .capa a:hover p{display:block;}
+
+/*  DESTAQUES E DE OLHO  */
+#site .home .bloco_dois{width:1000px; display:block; float:left; position:relative;}
+#site .home .bloco_dois .navbldois{float:left; list-style:none; display:inline; position:absolute; left:0px; top:80px;}
+#site .home .bloco_dois .navbldois li{float:left; cursor:pointer; font-size:24px; color:#fff; font-weight:200; padding:60px 0 30px; width:150px; text-align:center; background:#039;}
+#site .home .bloco_dois .navbldois .destaq{background:rgba(120,56,74,0.7) url(../images/dest.png) top 30px center no-repeat;}
+#site .home .bloco_dois .navbldois .destaq:hover{background-color:rgb(120,56,74);}
+#site .home .bloco_dois .navbldois .deolho{background:rgba(14,60,73,0.7) url(../images/eye.png) top 30px center no-repeat;}
+#site .home .bloco_dois .navbldois .deolho:hover{background-color:rgb(14,60,73);}
+
+#site .home .bloco_dois .content{float:right; width:810px; height:240px; padding:20px 20px 0; background:rgba(255,255,255,0.5);}
+#site .home .bloco_dois .content .arts{float:left; list-style:none; display:inline; margin-left:160px;}
+#site .home .bloco_dois .content .arts li{float:left; width:315px; margin-bottom:20px;}
+#site .home .bloco_dois .content .arts li img{float:left; margin-right:10px;}
+#site .home .bloco_dois .content .arts li a{text-decoration:none; color:#000; font-weight:bold;}
+#site .home .bloco_dois .content .arts li a:hover{color:#fff;}
+#site .home .bloco_dois .content .arts li p{margin-top:5px; font:200 14px 'Dosis',san-serif; color:#fbfbfb;}
+
+/*  VIDEOS  */
+#site .home .bloco_tres{width:1000px; display:block; padding-top:160px; float:left; position:relative; margin-bottom:150px;}
+#site .home .bloco_tres .content{float:right; width:1000px;}
+#site .home .bloco_tres .content h2{font:200 200px 'Dosis',san-serif; color:#633747; position:absolute; z-index:-2; right:0px; top:-20px;}
+#site .home .bloco_tres .content .videos{float:left; width:1000px; list-style:none; display:inline;}
+#site .home .bloco_tres .content .videos li{float:left; padding:10px; width:300px; margin:0 20px 20px 0; background:rgba(255,255,255,0.6);}
+#site .home .bloco_tres .content .videos li .licontent{padding:5px 0 5px;}
+#site .home .bloco_tres .content .videos li .licontent a{font:800 24px 'Dosis',san-serif; color:#069; text-decoration:none;}
+#site .home .bloco_tres .content .videos li .licontent a:hover{color:#000;}
+#site .home .bloco_tres .content .videos li .licontent p{margin-top:10px; font-size:15px; color:#333;}
+#site .home .bloco_tres .content .videos .readmore{background:none; padding:0; margin:0; float:right; width:auto;}
+#site .home .bloco_tres .content .videos .readmore a{font-size:30px; font-weight:bold; text-decoration:none; color:#FFF;}
+#site .home .bloco_tres .content .videos .readmore a:hover{color:#000;}
+
+
+/*  ARTIGOS  */
+#site .home .bloco_quatro{width:1000px; display:block; float:left; position:relative; margin-bottom:100px;}
+#site .home .bloco_quatro .content{float:right; width:1000px;}
+#site .home .bloco_quatro .content h2{font:200 260px 'Dosis',san-serif; color:#007FFF; position:absolute; z-index:-2; left:-6px; top:-200px;}
+#site .home .bloco_quatro .content .destaq{float:left; width:600px; margin:40px 0 0 0;}
+#site .home .bloco_quatro .content .destaq img{float:left; margin-right:10px; margin-top:10px;}
+#site .home .bloco_quatro .content .destaq a{color:#FFF; font-size:40px; text-transform:uppercase; color:#FFF; font-weight:600; text-decoration:none;}
+#site .home .bloco_quatro .content .destaq a:hover{color:#000;}
+#site .home .bloco_quatro .content .destaq p{margin-top:10px; color:#fff; font-size:16px;}
+
+#site .home .bloco_quatro .content .artigos{float:right; list-style:none; width:350px;}
+#site .home .bloco_quatro .content .artigos li{float:left; width:350px; margin-bottom:20px;}
+#site .home .bloco_quatro .content .artigos li img{float:left; margin-right:10px; margin-top:4px;}
+#site .home .bloco_quatro .content .artigos li a{font-weight:bold; color:#000; text-decoration:none; text-transform:uppercase;}
+#site .home .bloco_quatro .content .artigos li a:hover{color:#fff;}
+#site .home .bloco_quatro .content .artigos li p{margin-top:5px; color:#FFF; font-size:14px;}
+#site .home .bloco_quatro .content .artigos .readmore{background:none; padding:0; margin:0; float:right; width:auto;}
+#site .home .bloco_quatro .content .artigos .readmore a{font-size:30px; text-decoration:none; color:#FFF;}
+#site .home .bloco_quatro .content .artigos .readmore a:hover{color:#000;}
+
+/*  #FOOTER  */
+.footer{width:100%; display:block; background:#069; border-top:12px solid #072F3B; position:fixed; bottom:0px; left:0px;}
+.footer .content{width:1000px; margin:0 auto; padding:10px 0;}
+.footer .content .logo{float:right; margin:5px 0;}
+.footer .content .navtopo{float:left; margin:2px 0;}
+.footer .content .navtopo li{float:left; list-style:none;}
+.footer .content .navtopo li a{float:left; padding:10px 20px; background:#fbfbfb; text-transform:uppercase; font-size:20px;}
+.footer .content .navtopo li a{text-decoration:none; color:#06F;}
+.footer .content .navtopo li a:hover{background:#005782; color:#FFF;}
+.footer .content .navtopo li .active{background:rgba(255,32,32,0.5); color:#fff;}
