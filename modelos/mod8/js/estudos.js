@@ -395,6 +395,27 @@ $(function(){
 		stop: function(){
 			$('.estevalor').text('R$: '+$(this).val()+ ',00');
 		}
-	})
-	
+	});
+
+	//Tabs e Tooltips
+	var divtool = $('#tabs strong, #tabs a');
+	//divtool.tooltip();
+	//$('.tabs').tabs();
+
+	$('.tabs').tabs({
+		collapsible: false,
+		show: {effect: 'fade', duration:300},
+		hide: {effect: 'fade', duration:300},
+		event:  'click'
+	});
+
+	divtool.tooltip({
+		show: {effect: 'slideDown', duration:250},
+		hide: {effect: 'explode', duration:600},
+		track: false,
+		position:{
+			my: 'center bottom',
+			at: 'center top-5'
+		}
+	});
 });
