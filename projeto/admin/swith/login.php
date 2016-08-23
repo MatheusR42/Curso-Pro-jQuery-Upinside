@@ -7,12 +7,12 @@ $acao = mysqli_real_escape_string($conn, $_POST['acao']);
 
 switch($acao){
     case 'login':
-        $email = mysqli_real_escape_string($conn, $_POST['user']);
+        $login = mysqli_real_escape_string($conn, $_POST['login']);
         $pass = mysqli_real_escape_string($conn, $_POST['pass']);
-        if(!trim($email) || !$pass){
+        if(!trim($login) || !$pass){
             echo '0';
         }else{
-            $readUser = read('usuarios', "WHERE email = '$email' AND senha = '$pass' ");
+            $readUser = read('usuarios', "WHERE login = '$login' AND senha = '$pass' ");
             if($readUser):
                 foreach($readUser as $userLogin);
                 $_SESSION['userlogin'] = $userLogin;

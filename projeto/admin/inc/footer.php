@@ -1,3 +1,12 @@
+<?php 
+if(function_exists(myAut)):
+	myAut();
+else:
+	header('Location: ../dashboard.php');
+	die;
+endif;
+?>
+
 <!-- FOOTER -->
 <div id="footer">
 	<div class="content">

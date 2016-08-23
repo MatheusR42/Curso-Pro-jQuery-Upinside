@@ -1,5 +1,11 @@
-<?php require_once('../dts/configs.php');?>
-
+<?php 
+if(function_exists(myAut)):
+	myAut();
+else:
+	header('Location: ../dashboard.php');
+	die;
+endif;
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>

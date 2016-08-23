@@ -1,3 +1,11 @@
+<?php 
+if(function_exists(myAut)):
+	myAut();
+else:
+	header('Location: ../dashboard.php');
+	die;
+endif;
+?>
 <div class="content home">
     <h1 class="location">Oppsss. Não encontrado! <span><?php echo date('d/m/Y H:i');?></span></h1><!--/location-->
     

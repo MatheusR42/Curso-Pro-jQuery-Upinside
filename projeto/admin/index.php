@@ -8,15 +8,14 @@ if(isset($_GET['sair'])){
 }
 
 if(isset($_SESSION['userlogin'])){
-    $email = $_SESSION['userlogin']['email'];
+    $login = $_SESSION['userlogin']['login'];
     $pass = $_SESSION['userlogin']['senha'];
-    $readUser = read('usuarios', "WHERE email = '$email' AND senha = '$pass' ");
+    $readUser = read('usuarios', "WHERE login = '$login' AND senha = '$pass' ");
     if($readUser){
         header('Location: dashboard.php');
     }else{
         unset($_SESSION['userlogin']);
     }
-    
 }
 ?>
 
@@ -43,7 +42,7 @@ if(isset($_SESSION['userlogin'])){
     <form name="login" action="" method="post">
     	<label class="label">
         	<span class="field">Usuário:</span>
-            <input type="text" name="user" />
+            <input type="text" name="login" />
         </label>
                 
         <div class="label">
@@ -58,6 +57,9 @@ if(isset($_SESSION['userlogin'])){
     <?php
     	if(isset($_GET['sair'])):
 			echo '<div class="msg" style="display:block"><p class="sucesso"><strong>Você deslogou com sucesso!</strong></p></div>';	
+		endif;
+        if(isset($_GET['restrito'])):
+			echo '<div class="msg" style="display:block"><p class="erro"><strong>Acesso restrito!</strong></p></div>';	
 		endif;
 	?>
     

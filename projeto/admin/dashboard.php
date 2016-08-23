@@ -1,7 +1,25 @@
 <?php
 	ob_start();
 	session_start();
-	print_r($_SESSION['userlogin']);
+	require_once('../dts/configs.php');
+
+	function myAut(){
+		if($_SESSION['userlogin']){
+			$id = $_SESSION['userlogin']['id'];
+			$login = $_SESSION['userlogin']['login'];
+			$pass = $_SESSION['userlogin']['senha'];
+			$readUser = read('usuarios', "WHERE id = '$id' AND login = '$login' AND senha = '$pass'");
+			if(!$readUser){
+				unset($_SESSION['userlogin']);
+				header('Location: index.php?restrito=true');	
+			}
+		}else{
+			header('Location: index.php?restrito=true');
+		}
+	}
+
+	myAut();
+	
 	require_once('inc/header.php');
 	echo '<div id="site">';
 	
@@ -15,7 +33,7 @@
 		   		require('sis/404.php');	
 			endif;
 		else:
-			header('Location: dashboard.php?exe=sis/home');
+			header('Location: http://localhost/Curso-Pro-jQuery-Upinside/projeto/admin/dashboard.php?exe=sis/home');
 		endif;
 		
 	echo '</div><!-- /site -->';
