@@ -2,6 +2,22 @@
 ob_start();
 session_start();
 require_once('../dts/configs.php');
+
+if(isset($_GET['sair'])){
+    unset($_SESSION['userlogin']);
+}
+
+if(isset($_SESSION['userlogin'])){
+    $email = $_SESSION['userlogin']['email'];
+    $pass = $_SESSION['userlogin']['senha'];
+    $readUser = read('usuarios', "WHERE email = '$email' AND senha = '$pass' ");
+    if($readUser){
+        header('Location: dashboard.php');
+    }else{
+        unset($_SESSION['userlogin']);
+    }
+    
+}
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -45,9 +61,7 @@ require_once('../dts/configs.php');
 		endif;
 	?>
     
-    <div class="msg"><p class="erro">Erro ao logar! Dados não conferem!</p></div><!--/msg-->
-    <div class="msg"><p class="aviso">Informe seu usuário e senha!</p></div><!--/msg-->
-    <div class="msg"><p class="sucesso">Login efetuado, aguarde...</p></div><!--/msg-->
+    <div class="msg"></div><!--/msg-->
     
 </div><!--/login-box-->
 

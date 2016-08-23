@@ -1,6 +1,7 @@
 <?php
 	ob_start();
 	session_start();
+	print_r($_SESSION['userlogin']);
 	require_once('inc/header.php');
 	echo '<div id="site">';
 	

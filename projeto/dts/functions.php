@@ -34,6 +34,7 @@ function create($tabela, array $datas){
 FUNÇÃO DO PRO PHP
 FUNÇÃO DE LEITURA NO BANCO
 *****************************/
+/*
 function read($tabela, $cond = NULL){		
 	$qrRead = "SELECT * FROM {$tabela} {$cond}";
 	$stRead = mysql_query($qrRead) or die ('Erro ao ler em '.$tabela.' '.mysql_error());
@@ -48,6 +49,27 @@ function read($tabela, $cond = NULL){
 	}
 	return $resultado;
 }	
+*/
+
+function read($tabela, $cond = NULL){
+	global $conn;
+	$resultado = null;
+		
+	$qrRead = "SELECT * FROM {$tabela} {$cond}";
+	$stRead = mysqli_query($conn, $qrRead) or die ('Erro ao ler em '.$tabela.' '.mysql_error());
+	$cField = mysqli_num_fields($stRead);
+	$i = 0;
+	while ($property = mysqli_fetch_field($stRead)) {
+		$names[$i] = $property->name;
+		$i++;
+	}
+	for($x = 0; $res = mysqli_fetch_assoc($stRead); $x++){
+		for($i = 0; $i < $cField; $i++){
+			$resultado[$x][$names[$i]] = $res[$names[$i]];
+		}
+	}
+	return $resultado;
+}
 /*****************************
 FUNÇÃO DO PRO PHP
 FUNÇÃO DE EDIÇÃO NO BANCO

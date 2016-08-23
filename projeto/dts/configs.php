@@ -24,9 +24,9 @@ define('TELEFONE','');
 
 
 //CONECTA NO BANCO
-$conn = mysql_connect(HOST, USER, PASS) or die ('Erro ao conectar: '.mysql_error());
-$dbsa = mysql_select_db(DBSA) or die ('Erro ao selecionar banco: '.mysql_error());
+//$conn = mysqli_connect(HOST, USER, PASS) or die ('Erro ao conectar: '.mysql_error());
+//$dbsa = mysql_select_db(DBSA) or die ('Erro ao selecionar banco: '.mysql_error());
 
-
+$conn = mysqli_connect(HOST, USER, PASS, DBSA) or die ('Erro ao conectar: '.mysql_error());
 //INCLUI FUNÇÕES DO PRO PHP
 require_once('functions.php');
