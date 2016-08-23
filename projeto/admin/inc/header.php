@@ -27,8 +27,8 @@ endif;
 <script type="text/javascript" src="jsc/tiny_mce/plugins/tinybrowser/tb_tinymce.js.php"></script>
 
 <script type="text/javascript" src="jsc/jquery.mask.js"></script>
-<script type="text/javascript" src="jsc/estilo.js"></script>
-
+<script type="text/javascript" src="jsc/plugins.js"></script>
+<script type="text/javascript" src="jsc/controller.js"></script>
 </head>
 <body>
 
@@ -47,7 +47,7 @@ endif;
             <li class="li"><a title="Posts" href="dashboard.php?exe=posts/index" class="post <?php if(in_array('posts',$acturl)) echo 'active';?>">Posts</a>
             	<ul class="submenu">
                 	<li><a title="Gerenciar Posts" href="dashboard.php?exe=posts/index" class="ger <?php if(in_array('posts',$acturl)) echo 'active';?>">Gerenciar Posts</a></li>
-                    <li><a title="Adicionar Novo" href="dashboard.php?exe=posts/novo" class="add j_addpost <?php if(in_array('posts',$acturl)) echo 'active';?>">Adicionar Novo</a></li>
+                    <li><a title="Adicionar Novo" href="#" class="add j_addpost <?php if(in_array('posts',$acturl)) echo 'active';?>">Adicionar Novo</a></li>
                 </ul><!--/submenu-->
             </li><!--/-->
             <li class="li"><a title="Categorias" href="dashboard.php?exe=categorias/index" class="cats <?php if(in_array('categorias',$acturl)) echo 'active';?>">Categorias</a>

@@ -1,4 +1,4 @@
-$(function(){	
+/*$(function(){	
 	<!-- TinyMCE -->
 	<!-- EXTENSÂO DE YOUTUBE EM \tiny_mce\plugins\media\js MEDIA.js -->
 	tinyMCE.init({
@@ -193,4 +193,4 @@ $(function(){
 		});	
 		return false;
 	});
-});
+});*/
