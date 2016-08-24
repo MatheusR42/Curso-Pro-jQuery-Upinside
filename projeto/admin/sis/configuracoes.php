@@ -20,17 +20,22 @@ endif;
     
     
     	<!-- //FORM CONFIG MANUTENÇÃO -->
-    	<form name="config_manutencao" class="first" action="" method="post">        
+    	<form name="config_manutencao" class="first" action="" method="post"> 
+            <?php
+                $manutencao = read('config_manutencao');
+                foreach($manutencao as $man)
+                $main = $man['manutencao'];
+            ?>       
             <fieldset>
                 <legend>Acesso ao site:</legend>
-                <label>
+                <label class="main <?php if($main == 1) echo 'block';?>">
                     <span class="field">Modo Manutenão: <strong style="color:red">ATIVO</strong></span>
                     <input type="submit" value="DESATIVAR MANUTENÇÃO" class="btn j_config_manutencao_no" /> 
                     <img src="img/loader.gif" class="load" alt="Carregando..." title="Carregando..." />
                 </label>
                 
-                <label style="display:none;">
-                    <span>Modo Manutenão: <strong style="color:green">INATIVO</strong></span>
+                <label class="main <?php if($main == 0) echo 'block';?>">
+                    <span class="field">Modo Manutenão: <strong style="color:green">INATIVO</strong></span>
                     <input type="submit" value="ATIVAR MANUTENÇÃO" class="btn j_config_manutencao_yes" /> 
                     <img src="img/loader.gif" class="load" alt="Carregando..." title="Carregando..." />
                 </label>

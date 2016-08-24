@@ -56,7 +56,7 @@ function read($tabela, $cond = NULL){
 	$resultado = null;
 		
 	$qrRead = "SELECT * FROM {$tabela} {$cond}";
-	$stRead = mysqli_query($conn, $qrRead) or die ('Erro ao ler em '.$tabela.' '.mysql_error());
+	$stRead = mysqli_query($conn, $qrRead) or die ('Erro ao ler em '.$tabela.' '.mysqli_error());
 	$cField = mysqli_num_fields($stRead);
 	$i = 0;
 	while ($property = mysqli_fetch_field($stRead)) {
@@ -74,7 +74,7 @@ function read($tabela, $cond = NULL){
 FUNÇÃO DO PRO PHP
 FUNÇÃO DE EDIÇÃO NO BANCO
 *****************************/	
-function update($tabela, array $datas, $where){
+/*function update($tabela, array $datas, $where){
 	foreach($datas as $fields => $values){
 		$campos[] = "$fields = '$values'";
 	}
@@ -87,7 +87,22 @@ function update($tabela, array $datas, $where){
 		return true;	
 	}
 	
-}	
+}*/
+function update($tabela, array $datas, $where){
+	global $conn;
+	foreach($datas as $fields => $values){
+		$campos[] = "$fields = '$values'";
+	}
+	
+	$campos = implode(", ",$campos);
+	$qrUpdate = "UPDATE {$tabela} SET $campos WHERE {$where}";
+	$stUpdate = mysqli_query($conn, $qrUpdate) or die ('Erro ao atualizar em '.$tabela.' '.mysqli_error());
+
+	if($stUpdate){
+		return true;	
+	}
+	
+}
 /*****************************
 FUNÇÃO DO PRO PHP
 FUNÇÃO DE DELETAR NO BANCO

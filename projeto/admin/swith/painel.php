@@ -6,8 +6,13 @@ require_once('../../dts/configs.php');
 $acao = mysqli_real_escape_string($conn, $_POST['acao']);
 
 switch($acao){
-    case '':
-       
+    case 'manutencaoDesativa':
+       $dados =array('manutencao' => '0');
+       update('config_manutencao', $dados, "manutencao= '1'");
+    break;
+    case 'manutencaoAtiva':
+       $dados =array('manutencao' => '1');
+       update('config_manutencao', $dados, "manutencao= '0'");
     break;
     default:
         echo 'error';

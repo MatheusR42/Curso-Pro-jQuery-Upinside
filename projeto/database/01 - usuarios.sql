@@ -18,3 +18,7 @@ ALTER TABLE usuarios MODIFY login VARCHAR( 255 ) NOT NULL;
 
 2008-03-09 16:05:07
 827ccb0eea8a706c4c34a16891f84e7b
+
+create table config_manutencao(
+	manutencao int not null primary key default 0
+);

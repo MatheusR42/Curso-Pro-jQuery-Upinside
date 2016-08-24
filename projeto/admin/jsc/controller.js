@@ -4,7 +4,9 @@ $(window).ready(function(){
 	});
 });
 
-$(function(){	
+$(function(){
+	var link = 'swith/painel.php';
+
 	//CUSTOM
 	$('.controle .li').mouseenter(function(){
 		$(this).find('.submenu').slideDown("fast", stop());
@@ -38,5 +40,56 @@ $(function(){
 			$('.configs form[name="'+formGo+'"]').fadeIn('fast');
 		});
 		return false;
+	});
+
+	//MANUTENÇÃO
+	$('form[name="config_manutencao"]').submit(function(){
+		return false;
+	});
+
+	$('.j_config_manutencao_no').click(function(){
+		$.ajax({
+			url: link,
+			type: 'POST',
+			data:'acao=manutencaoDesativa',
+			beforeSend: function(){
+				$('fieldset .main .load').fadeIn('fast');
+			},
+			success:function(resposta){
+				$('.j_config_manutencao_no').parent().fadeOut('fast', function(){
+					console.table($(this).parent().children().eq(2).fadeIn('fast'));
+					$(this).parent().children().eq(2).fadeIn('fast');
+				});
+			},
+			complete: function(){
+				$('fieldset .main .load').fadeOut('fast');
+			},
+			error: function(){
+				alert('error');
+			}
+		})
+	});
+
+	$('.j_config_manutencao_yes').click(function(){
+		$.ajax({
+			url: link,
+			type: 'POST',
+			data:'acao=manutencaoAtiva',
+			beforeSend: function(){
+				$('fieldset .main .load').fadeIn('fast');
+			},
+			success:function(resposta){
+				$('.j_config_manutencao_yes').parent().fadeOut('fast', function(){
+					console.table($(this).parent().children().eq(1).fadeIn('fast'));
+					$(this).parent().children().eq(1).fadeIn('fast');
+				});
+			},
+			complete: function(){
+				$('fieldset .main .load').fadeOut('fast');
+			},
+			error: function(){
+				alert('error');
+			}
+		})
 	});
 });
