@@ -1,3 +1,8 @@
+$(window).ready(function(){
+	$('.loadsistem').fadeOut('slow',function(){
+		$('.dialog').fadeOut('fast');
+	});
+});
 $(function(){	
 	//CUSTOM
 	$('.controle .li').mouseenter(function(){

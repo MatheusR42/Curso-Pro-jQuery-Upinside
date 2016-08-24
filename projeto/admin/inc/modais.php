@@ -1,5 +1,10 @@
 <div class="dialog">
 
+    <div class="loadsistem">
+        <img src="img/loader.gif" alt="Carregando o sistema...">
+        <p>Aguarde caregando o sitema...</p>
+    </div><!-- msg -->
+
 	<div class="msg accept">
     	<strong class="tt">Sucesso:</strong>
         <p>Parabéns. Seus dados foram enviados com sucesso. Estaremos respondendo em breve.</p><p><strong>Obrigado!</strong></p>

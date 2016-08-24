@@ -149,16 +149,21 @@
 
 /*  CONFIGURAÇÕES  */
 .configs{float:left; width:1000px;}
-.configs form{padding:20px; background:#fff; float:left; width:960px;}
-.configs form fieldset{padding:20px; background:#fcfcfc; margin-bottom:20px; border:5px solid #DFEFFF;}
+.configs .abas_config{float:left; width:980px; padding:10px; background:#06f; list-style:none;}
+.configs .abas_config li{float:left;}
+.configs .abas_config li a{float:left; margin-right:3px; padding:10px 20px; background:#03f; text-transform:uppercase; color:#FFF; text-decoration:none;}
+.configs .abas_config li a:hover{background:#09F;}
+.configs .abas_config li .active{background:#036;}
+
+.configs form{padding:30px 20px; background:#fff; float:left; width:960px;}
+.configs form fieldset{padding:20px; background:#fcfcfc; border:5px solid #DFEFFF;}
 .configs form fieldset legend{font-size:30px;}
+.configs form fieldset label{display:block; float:left; width:920px;}
 .configs form fieldset .field{display:block; margin-bottom:5px; font-weight:600; text-transform:uppercase; color:#999;}
-.configs form fieldset .label input{padding:8px; border:5px solid #CCC; margin-bottom:10px; width:400px;}
-.configs form fieldset .radio{display:block;}
-.configs form fieldset .radio label{padding:20px; background:#06F; float:left; font-size:20px; text-transform:uppercase; color:#FFF; font-weight:600; width:100px; text-align:center;}
-.configs form fieldset .radio label:hover{background:#09F;}
-.configs form fieldset .radio .red{background:#300;}
-.configs form fieldset .radio .red:hover{background:#900;}
-.configs form .btn{padding:20px; float:left; text-transform:uppercase; cursor:pointer; background:#03F; border:none; font-size:20px; color:#fff;}
+.configs form fieldset .label input, .configs form fieldset .label textarea{padding:8px; border:5px solid #CCC; margin-bottom:10px; width:400px;}
+
+.configs form .btn{padding:10px 20px; margin-top:20px; float:left; text-transform:uppercase; cursor:pointer; background:#03F; border:none; font-size:20px; color:#fff;}
 .configs form .btn:hover{background:#FF8080;}
-.configs form .load{float:left; margin:18px;}
+.configs form .teste{background:green;}
+.configs form .teste:hover{background:#0F6;}
+.configs form .load{float:left; margin:26px 0 0 16px;}
