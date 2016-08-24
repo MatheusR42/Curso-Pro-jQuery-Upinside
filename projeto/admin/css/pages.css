@@ -155,7 +155,8 @@
 .configs .abas_config li a:hover{background:#09F;}
 .configs .abas_config li .active{background:#036;}
 
-.configs form{padding:30px 20px; background:#fff; float:left; width:960px;}
+.configs form{padding:30px 20px; background:#fff; float:left; width:960px;display: none;}
+.configs .first{display:block;}
 .configs form fieldset{padding:20px; background:#fcfcfc; border:5px solid #DFEFFF;}
 .configs form fieldset legend{font-size:30px;}
 .configs form fieldset label{display:block; float:left; width:920px;}

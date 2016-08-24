@@ -58,4 +58,6 @@ $(function(){
 	
     //Mascaras
 	$(".formDate").mask("99/99/9999 99:99:99",{placeholder:" "});
+	$(".formFone").mask("(99) 9999-9999",{placeholder:" "});
+
 });

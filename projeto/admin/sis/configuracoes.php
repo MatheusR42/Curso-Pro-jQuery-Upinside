@@ -1,3 +1,11 @@
+<?php 
+if(function_exists(myAut)):
+	myAut();
+else:
+	header('Location: ../dashboard.php');
+	die;
+endif;
+?>
 <div class="content home">
     <h1 class="location">Configurações<span><?php echo date('d/m/Y H:i');?></span></h1><!--/location-->
     
@@ -7,6 +15,7 @@
             <li><a href="config_manutencao" class="active" title="Módulo de Manutenção">Módulo de Manutenção</a></li>
             <li><a href="config_email" title="E-mail de envio">Servidor de e-mail</a></li>
             <li><a href="config_seo" title="Otimizar Home">Otimizar Home</a></li>
+            <li><a href="config_dados" title="Otimizar Home">Endereço e Telefone</a></li>
         </ul><!--/navega-->
     
     
@@ -90,7 +99,26 @@
         </fieldset>     
         </form>       
         
+        <!-- //FORM CONFIG SEO -->
+        <form name="config_dados" action="" method="post">        
+        <fieldset>
+        	<legend>Endereço/telefone:</legend>
+            	<label class="label">
+        			<span class="field">Endereço:</span>
+                    <input type="text" name="endereco" />                    
+                </label>
+                
+                <label class="label">
+        			<span class="field">Telefone:</span>
+                    <input type="text" class="formFone" name="telefone">                 
+                </label>
+                
+                <input type="submit" value="Otimizar Site" class="btn" /> 
+                <img src="img/loader.gif" class="load" alt="Carregando..." title="Carregando..." />          
+        </fieldset>     
+        </form>
     </div><!--/configs -->
 
+    
 <div class="clear"></div><!-- /clear -->
 </div><!-- /content -->

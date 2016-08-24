@@ -3,6 +3,7 @@ $(window).ready(function(){
 		$('.dialog').fadeOut('fast');
 	});
 });
+
 $(function(){	
 	//CUSTOM
 	$('.controle .li').mouseenter(function(){
@@ -26,4 +27,16 @@ $(function(){
             $('.dialog').fadeOut('fast');
         });
     });
+
+	$('.configs .abas_config li a').click(function(){
+		$('.configs .abas_config li a').removeClass('active');
+		$(this).addClass('active');
+		
+		var formGo = $(this).attr('href');
+		
+		$('.configs form[name!="'+formGo+'"]').fadeOut('fast', function(){
+			$('.configs form[name="'+formGo+'"]').fadeIn('fast');
+		});
+		return false;
+	});
 });
