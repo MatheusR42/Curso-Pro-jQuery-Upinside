@@ -1,11 +1,14 @@
-$(window).ready(function(){
-	$('.loadsistem').fadeOut('slow',function(){
-		$('.dialog').fadeOut('fast');
-	});
-});
 
-$(function(){
+
+jQuery(function($) { 
 	var link = 'swith/painel.php';
+	
+	$('.dialog').on('click', '.closedial', function(){
+		$(this).parent().fadeOut('fast',function(){
+			$('.dialog').fadeOut('fast');
+		});
+		return false;
+	});
 
 	//CUSTOM
 	$('.controle .li').mouseenter(function(){
@@ -17,6 +20,7 @@ $(function(){
     function stop(){
         $('.submenu').stop(true, true);
     }
+
 	$('.j_addpost').click(function(){
 		$('.dialog').fadeIn("fast", function(){
 			$('.newpost').fadeIn('fast');
@@ -24,11 +28,25 @@ $(function(){
 		return false;	
 	});
 
-    $('.closemodal').click(function(){
-        $(this).parent().fadeOut('fast',function(){
-            $('.dialog').fadeOut('fast');
-        });
-    });
+	$('form').submit(function(){
+		myModal( 'accept', 'Teste de modal');
+		return false;
+	});
+
+	function myModal(tipo, content){
+		var title = (tipo == 'accept' ? 'Sucesso: ': (tipo == 'error' ? 'Ops: ': (tipo == 'alert' ? 'Atenção: ': 'null')));
+		if(title == 'null'){
+			alert('Tippo invalido');
+		}else{
+			$('.dialog').fadeIn('fast', function(){
+				$('.ajaxmsg').addClass(tipo).html(
+					'<strong class="tt">'+title+'</strong>'+
+        			'<p>'+content+'</p>'+
+    				'<a href="#" class="closedial">X FECHAR</a>'
+				).fadeIn('fast');
+			});
+		}
+	}
 
 	$('.configs .abas_config li a').click(function(){
 		$('.configs .abas_config li a').removeClass('active');
@@ -67,7 +85,7 @@ $(function(){
 			error: function(){
 				alert('error');
 			}
-		})
+		});
 	});
 
 	$('.j_config_manutencao_yes').click(function(){
@@ -90,6 +108,12 @@ $(function(){
 			error: function(){
 				alert('error');
 			}
-		})
+		});
+	});
+});
+
+$( window ).load(function() {
+	$('.loadsistem').fadeOut('slow',function(){
+		$('.dialog').fadeOut('fast');
 	});
 });

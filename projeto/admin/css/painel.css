@@ -11,7 +11,7 @@ a{border:none; margin:0;}
 
 /* MYDIALOG */
 .dialog{position:fixed; left:0px; top:0px; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:104;}
-.dialog .msg{background:#fff; position:absolute; left:50%; top:50%; width:400px; height:160px; z-index:106; border:5px solid #CCC;}
+.dialog .msg{background:#fff; position:absolute; left:50%; top:50%; width:400px; height:160px; z-index:106; border:5px solid #CCC;display: none;}
 .dialog .msg{padding:20px; margin-left:-220px; margin-top:-90px;}
 .dialog .msg .tt{display:block; margin-bottom:10px; padding-bottom:5px; border-bottom:1px solid #CCC; font-size:40px; font-weight:600;}
 .dialog .msg p{font-size:18px; font-weight:400; margin-top:10px;}
@@ -20,11 +20,11 @@ a{border:none; margin:0;}
 .dialog .msg .closedial{text-decoration:none; color:#fff; font-weight:200;}
 .dialog .msg .closedial:hover{background:#09F; color:#fff;}
 
-.dialog .accept{color:#0C0;display: none;}
+.dialog .accept{color:#0C0;}
 .dialog .accept .tt{padding-left:45px; background:url(../../tpl/images/ms_icon_accept.png) center left no-repeat;}
-.dialog .alert{color:#F90;display:none;}
+.dialog .alert{color:#F90;}
 .dialog .alert .tt{padding-left:45px; background:url(../../tpl/images/ms_icon_alert.png) center left no-repeat;}
-.dialog .error{color:#900;display:none;}
+.dialog .error{color:#900;}
 .dialog .error .tt{padding-left:45px; background:url(../../tpl/images/ms_icon_error.png) center left no-repeat;}
 
 /*LOAD SISTEM*/

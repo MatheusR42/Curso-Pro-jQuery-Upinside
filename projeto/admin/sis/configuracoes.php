@@ -28,17 +28,17 @@ endif;
             ?>       
             <fieldset>
                 <legend>Acesso ao site:</legend>
-                <label class="main <?php if($main == 1) echo 'block';?>">
+                <div class="main <?php if($main == 1) echo 'block';?>">
                     <span class="field">Modo Manutenão: <strong style="color:red">ATIVO</strong></span>
                     <input type="submit" value="DESATIVAR MANUTENÇÃO" class="btn j_config_manutencao_no" /> 
                     <img src="img/loader.gif" class="load" alt="Carregando..." title="Carregando..." />
-                </label>
+                </div>
                 
-                <label class="main <?php if($main == 0) echo 'block';?>">
+                <div class="main <?php if($main == 0) echo 'block';?>">
                     <span class="field">Modo Manutenão: <strong style="color:green">INATIVO</strong></span>
                     <input type="submit" value="ATIVAR MANUTENÇÃO" class="btn j_config_manutencao_yes" /> 
                     <img src="img/loader.gif" class="load" alt="Carregando..." title="Carregando..." />
-                </label>
+                </div>
             </fieldset>
         </form>
         
