@@ -47,3 +47,39 @@ ALTER TABLE config_mailserver modify porta varchar(255) NOT NULL;
 ALTER TABLE config_mailserver modify server varchar(255) NOT NULL;
 
 select * from config_mailserver;
+
+create table config_sensorial(
+	id int not null primary key,
+    titulo varchar(255) ,
+    descricao varchar(255) ,
+    facebook varchar(255) ,
+    twitter varchar(255) 
+);
+
+INSERT INTO `projquery`.`config_sensorial` (`id`) VALUES ('1');
+
+UPDATE config_sensorial SET titulo = '' WHERE titulo IS NULL;
+UPDATE config_sensorial SET descricao = '' WHERE descricao IS NULL;
+UPDATE config_sensorial SET facebook = '' WHERE facebook IS NULL;
+UPDATE config_sensorial SET twitter = '' WHERE twitter IS NULL;
+
+ALTER TABLE config_sensorial modify titulo varchar(255) NOT NULL;
+ALTER TABLE config_sensorial modify descricao varchar(255) NOT NULL;
+ALTER TABLE config_sensorial modify facebook varchar(255) NOT NULL;
+ALTER TABLE config_sensorial modify twitter varchar(255) NOT NULL;
+
+create table config_endtel(
+	id int not null primary key,
+    telefone varchar(255) ,
+    endereco varchar(255)
+);
+
+INSERT INTO `projquery`.`config_endtel` (`id`) VALUES ('1');
+
+UPDATE config_endtel SET telefone = '' WHERE telefone IS NULL;
+UPDATE config_endtel SET endereco = '' WHERE endereco IS NULL;
+
+ALTER TABLE config_endtel modify telefone varchar(255) NOT NULL;
+ALTER TABLE config_endtel modify endereco varchar(255) NOT NULL;
+
+select * from config_endtel;

@@ -9,15 +9,8 @@ define('DBSA','projquery');
 define('BASE','http://localhost/Curso-Pro-jQuery-Upinside/projeto');
 define('SITENAME','MyContent - Home | Pro jQuery - Criando Intercafex');
 define('SITEDESC','Confira o projeto final desenvolvido no curso Pro jQuery - Crinado interfaces da UpInside. Veja mais em www.upinside.com.br/campus');
-define('SITETAGS','Curso jQuery, jQuery, jQuery co PHP, jQuery com Mysql');
+//define('SITETAGS','Curso jQuery, jQuery, jQuery co PHP, jQuery com Mysql'); O GOOGLE NAO ACEITA MAIS AS TAGS
 define('IMAGEW','700px');
-
-
-
-//MEUS DADOS
-define('ENDERECO','');
-define('TELEFONE','');
-
 
 //CONECTA NO BANCO
 //$conn = mysqli_connect(HOST, USER, PASS) or die ('Erro ao conectar: '.mysql_error());
@@ -27,7 +20,7 @@ $conn = mysqli_connect(HOST, USER, PASS, DBSA) or die ('Erro ao conectar: '.mysq
 //INCLUI FUNÇÕES DO PRO PHP
 require_once('functions.php');
 
- //DEFINE O SERVIDOR DE E-MAIL
+//DEFINE O SERVIDOR DE E-MAIL
 $config_readMailServer = read('config_mailserver');
 if($config_readMailServer){
     foreach($config_readMailServer as $config_mailserver);
@@ -40,4 +33,30 @@ if($config_readMailServer){
     define('MAILPASS','null');
     define('MAILPORT','null');
     define('MAILHOST','null');
+}
+
+//DEFINE O SEO SOCIAL
+$config_readSocial = read('config_sensorial');
+if($config_readSocial){
+    foreach($config_readSocial as $config_social);
+    define('SITENAME', $config_social['titulo']);
+    define('SITEDESC', $config_social['descricao']);
+    define('FACEBOOK', $config_social['facebook']);
+    define('TWITTER',  $config_social['twitter']);
+}else{ 
+    define('SITENAME','MyContent - Home | Pro jQuery - Criando Intercafex');
+    define('SITEDESC','Confira o projeto final desenvolvido no curso Pro jQuery - Crinado interfaces da UpInside. Veja mais em www.upinside.com.br/campus');
+    define('FACEBOOK','upinside');
+    define('TWITTER','MyContent - Home | Pro jQuery - Criando Intercafex');
+}
+
+//MEUS DADOS
+$config_readEndtel = read('config_endtel');
+if($config_readEndtel){
+    foreach($config_readEndtel as $config_endtel);
+    define('ENDERECO', $config_endtel['endereco']);
+    define('TELEFONE', $config_endtel['telefone']);
+}else{ 
+    define('ENDERECO','');
+    define('TELEFONE','');
 }

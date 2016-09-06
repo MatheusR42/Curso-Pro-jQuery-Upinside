@@ -76,7 +76,6 @@ jQuery(function($) {
 			},
 			success:function(resposta){
 				$('.j_config_manutencao_no').parent().fadeOut('fast', function(){
-					console.table($(this).parent().children().eq(2).fadeIn('fast'));
 					$(this).parent().children().eq(2).fadeIn('fast');
 				});
 			},
@@ -168,6 +167,65 @@ jQuery(function($) {
 				alert('Error');
 			}
 		});
+	});
+
+	//SEO/SOCIAL
+	$('form[name="config_seo"]').submit(function(){
+		var forma = $(this);
+		var dados = 'acao=seo_atualiza&' + $(this).serialize();
+		$.ajax({
+			url: link,
+			data: dados,
+			type: 'POST',
+			beforeSend: function(){
+				forma.find('.load').fadeIn('fast');
+			},
+			success: function(resposta){
+				if(resposta == 1){
+					myModal('accept', 'Dadoos atualizados!');
+				}else if(resposta == 0){
+					myModal('alert', 'Preencha todos os campos!');
+				}else{
+					myModal('error', 'Algo muito errado aconteceu!');
+				}
+			},
+			complete: function(){
+				forma.find('.load').fadeOut('fast');
+			},
+			error: function(){
+				alert('Error');
+			}
+		});
+		return false;
+	});
+
+	$('form[name="config_dados"]').submit(function(){
+		var forma = $(this);
+		var dados = 'acao=atualizaEndtel&' + $(this).serialize();
+		$.ajax({
+			url: link,
+			data: dados,
+			type: 'POST',
+			beforeSend: function(){
+				forma.find('.load').fadeIn('fast');
+			},
+			success: function(resposta){
+				if(resposta == 1){
+					myModal('accept', 'Dadoos atualizados!');
+				}else if(resposta == 0){
+					myModal('alert', 'Preencha todos os campos!');
+				}else{
+					myModal('error', 'Algo muito errado aconteceu!');
+				}
+			},
+			complete: function(){
+				forma.find('.load').fadeOut('fast');
+			},
+			error: function(){
+				alert('Error');
+			}
+		});
+		return false;
 	});
 });
 

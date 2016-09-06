@@ -25,7 +25,7 @@ switch($acao){
         }else if(!isMail($f['email'])){
             echo '2';
         }else{
-            update('config_mailserver', $f, "id = '1'");   
+            update('config_mailserver', $f, "id = '1'");
             echo '1';
         }
     break;
@@ -39,6 +39,30 @@ switch($acao){
             echo $mail['email'];
         }else{
             echo 'error';
+        }
+    break;
+    case 'seo_atualiza':
+        $f['titulo'] = mysqli_real_escape_string($conn, $_POST['titulo']);
+        $f['descricao'] = mysqli_real_escape_string($conn, $_POST['descricao']);
+        $f['twitter'] = mysqli_real_escape_string($conn, $_POST['twitter']);
+        $f['facebook'] = mysqli_real_escape_string($conn, $_POST['facebook']);
+       
+        if(in_array('',array_map('trim', $f))){
+            echo '0';
+        }else{
+            update('config_sensorial', $f, "id = '1'");
+            echo '1';
+        }
+    break;
+    case 'atualizaEndtel':
+        $f['endereco'] = mysqli_real_escape_string($conn, $_POST['endereco']);
+        $f['telefone'] = mysqli_real_escape_string($conn, $_POST['telefone']);
+       
+        if(in_array('',array_map('trim', $f))){
+            echo '0';
+        }else{
+            update('config_endtel', $f, "id = '1'");
+            echo '1';
         }
     break;
     default:

@@ -80,27 +80,31 @@ endif;
         
         
         <!-- //FORM CONFIG SEO -->
-        <form name="config_seo" action="" method="post">        
+        <form name="config_seo" action="" method="post">
+        <?php
+            $readConfigSeo = read('config_sensorial');
+            foreach($readConfigSeo as $configSeo);
+        ?>        
         <fieldset>
         	<legend>SEO/Social:</legend>
             	<label class="label">
         			<span class="field">Titulo:</span>
-                    <input type="text" name="title" />                    
+                    <input type="text" name="titulo" value="<?php echo $configSeo['titulo']?>"/>                    
                 </label>
                 
                 <label class="label">
         			<span class="field">Descrição:</span>
-                    <textarea name="descricao" rows="5"></textarea>                 
+                    <textarea name="descricao" rows="5"> <?php echo $configSeo['descricao']?> </textarea>                 
                 </label>
                 
                 <label class="label">
         			<span class="field">Facebook:</span>
-                    <input type="text" name="facebook" />                    
+                    <input type="text" name="facebook" value="<?php echo $configSeo['facebook']?>"/>                    
                 </label>
                 
                 <label class="label">
         			<span class="field">Twitter:</span>
-                    <input type="text" name="twitter" />                    
+                    <input type="text" name="twitter" value="<?php echo $configSeo['twitter']?>" />                    
                 </label>  
                 
                 <input type="submit" value="Otimizar Site" class="btn" /> 
@@ -109,20 +113,24 @@ endif;
         </form>       
         
         <!-- //FORM CONFIG SEO -->
-        <form name="config_dados" action="" method="post">        
+        <form name="config_dados" action="" method="post">
+        <?php
+            $readConfigEndtel = read('config_endtel');
+            foreach($readConfigEndtel as $configEndtel);
+        ?>        
         <fieldset>
         	<legend>Endereço/telefone:</legend>
             	<label class="label">
         			<span class="field">Endereço:</span>
-                    <input type="text" name="endereco" />                    
+                    <input type="text" name="endereco" value="<?php echo $configEndtel['endereco']?>"/>                    
                 </label>
                 
                 <label class="label">
         			<span class="field">Telefone:</span>
-                    <input type="text" class="formFone" name="telefone">                 
+                    <input type="text" class="formFone" name="telefone" value="<?php echo $configEndtel['telefone']?>">                 
                 </label>
                 
-                <input type="submit" value="Otimizar Site" class="btn" /> 
+                <input type="submit" value="Atualizar Dados" class="btn" /> 
                 <img src="img/loader.gif" class="load" alt="Carregando..." title="Carregando..." />          
         </fieldset>     
         </form>
