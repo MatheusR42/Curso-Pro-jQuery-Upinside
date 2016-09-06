@@ -14,6 +14,33 @@ switch($acao){
        $dados =array('manutencao' => '1');
        update('config_manutencao', $dados, "manutencao= '0'");
     break;
+    case 'mailserver_atualiza':
+        $f['email'] = mysqli_real_escape_string($conn, $_POST['email']);
+        $f['senha'] = mysqli_real_escape_string($conn, $_POST['senha']);
+        $f['porta']= mysqli_real_escape_string($conn, $_POST['porta']);
+        $f['server'] = mysqli_real_escape_string($conn, $_POST['server']);
+        
+        if(in_array('',array_map('trim', $f))){
+            echo '0';
+        }else if(!isMail($f['email'])){
+            echo '2';
+        }else{
+            update('config_mailserver', $f, "id = '1'");   
+            echo '1';
+        }
+    break;
+    case 'mailserver_teste':
+        $readEmailServer = read('config_mailserver');
+        foreach($readEmailServer as $mail);
+        $assunto = 'Teste Email';
+        $mensagem = 'Seu servidor de e-mails foi configurado com sucesso. Parabéns.<br/><br/>Enviado em: '.date('d/m/Y H:i:s');
+        $sendMail = sendMail($assunto,$mensagem,MAILUSER, SITENAME, MAILUSER, SITENAME);
+        if($sendMail){
+            echo $mail['email'];
+        }else{
+            echo 'error';
+        }
+    break;
     default:
         echo 'error';
 }

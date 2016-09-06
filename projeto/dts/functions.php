@@ -296,7 +296,7 @@ function formDate($data){
 FUNÇÃO DO PRO PHP
 VALIDA O EMAIL
 *****************************/	
-function valMail($email){
+function isMail($email){
 	if(preg_match('/[a-z0-9_\.\-]+@[a-z0-9_\.\-]*[a-z0-9_\.\-]+\.[a-z]{2,4}$/',$email)){
 		return true;
 	}else{

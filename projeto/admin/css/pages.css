@@ -170,4 +170,4 @@
 .configs form .btn:hover{background:#FF8080;}
 .configs form .teste{background:green;}
 .configs form .teste:hover{background:#0F6;}
-.configs form .load{float:left; margin:26px 0 0 16px;}
+.configs form .load{float:left; margin:26px 0 0 16px;display: none;}

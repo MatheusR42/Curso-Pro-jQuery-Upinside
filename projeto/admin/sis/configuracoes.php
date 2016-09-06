@@ -45,31 +45,35 @@ endif;
         
         
         <!-- //FORM SERVER MAIL -->
-        <form name="config_email" action="" method="post">        
+        <form name="config_email" action="" method="post">
+            <?php
+                $readMailServer = read('config_mailserver');
+                foreach($readMailServer as $mailServer);
+            ?>        
             <fieldset>
                 <legend>Email de envio:</legend>
                     <label class="label">
                         <span class="field">E-mail:</span>
-                        <input type="text" name="email" />                    
+                        <input type="text" name="email" value="<?php echo  $mailServer['email'] ?>"/>                    
                     </label>
                     
                     <label class="label">
                         <span class="field">Senha:</span>
-                        <input type="password" name="senha" />                    
+                        <input type="password" name="senha" value="<?php echo  $mailServer['senha'] ?>"/>                    
                     </label>
                     
                     <label class="label">
                         <span class="field">Porta:</span>
-                        <input type="text" name="porta" />                    
+                        <input type="text" name="porta" value="<?php echo  $mailServer['porta'] ?>"/>                    
                     </label>
                     
                     <label class="label">
                         <span class="field">Server:</span>
-                        <input type="text" name="server" />                    
+                        <input type="text" name="server" value="<?php echo  $mailServer['server'] ?>"/>                    
                     </label> 
                     
-                    <input type="submit" value="Testar Envio" class="btn teste j_config_email_teste" />
                     <input type="submit" value="Atualizar Dados" class="btn" /> 
+                    <input type="button" value="Testar Envio" class="btn teste j_config_email_teste" />
                     <img src="img/loader.gif" class="load" alt="Carregando..." title="Carregando..." />           
             </fieldset>               
         </form>

@@ -28,17 +28,18 @@ jQuery(function($) {
 		return false;	
 	});
 
-	$('form').submit(function(){
+	/*$('form').submit(function(){
 		myModal( 'accept', 'Teste de modal');
 		return false;
-	});
+	});*/
 
 	function myModal(tipo, content){
 		var title = (tipo == 'accept' ? 'Sucesso: ': (tipo == 'error' ? 'Ops: ': (tipo == 'alert' ? 'Atenção: ': 'null')));
 		if(title == 'null'){
-			alert('Tippo invalido');
+			alert('Tipo invalido');
 		}else{
 			$('.dialog').fadeIn('fast', function(){
+				$('.ajaxmsg').attr('class', 'ajaxmsg msg');
 				$('.ajaxmsg').addClass(tipo).html(
 					'<strong class="tt">'+title+'</strong>'+
         			'<p>'+content+'</p>'+
@@ -107,6 +108,64 @@ jQuery(function($) {
 			},
 			error: function(){
 				alert('error');
+			}
+		});
+	});
+
+	//SERVIDOR DE EMAIL 
+	$('form[name=config_email]').submit(function(){
+		var forma = $(this);
+		var dados = 'acao=mailserver_atualiza&' + $(this).serialize();
+		$.ajax({
+			url: link,
+			data: dados,
+			type: 'POST',
+			beforeSend: function(){
+				forma.find('.load').fadeIn('fast');
+			},
+			success: function(resposta){
+				if(resposta == 1){
+					myModal('accept', 'Servidor atualizado');
+				}else if(resposta == 2){
+					myModal('alert', 'E-mail invalido!');
+				}else{
+					myModal('alert', 'Preencha todos os campos!');
+				}
+			},
+			complete: function(){
+				forma.find('.load').fadeOut('fast');
+			},
+			error: function(){
+				alert('Error');
+			}
+		});
+		return false;
+	});
+
+
+	//Testa EMAIL
+	$('.j_config_email_teste').click(function(){
+		var forma = $('form[name=config_email]');
+		var dados = 'acao=mailserver_teste&' + forma.serialize();
+		$.ajax({
+			url: link,
+			data: dados,
+			type: 'POST',
+			beforeSend: function(){
+				forma.find('.load').fadeIn('fast');
+			},
+			success: function(resposta){
+				if(resposta.indexOf('error') == -1){
+					myModal('accept', 'Email enviado com sucesso!');
+				}else{
+					myModal('error', 'Algo errado aconteceu!');
+				}
+			},
+			complete: function(){
+				forma.find('.load').fadeOut('fast');
+			},
+			error: function(){
+				alert('Error');
 			}
 		});
 	});

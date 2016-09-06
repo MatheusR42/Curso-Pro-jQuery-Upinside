@@ -26,7 +26,7 @@ a{border:none; margin:0;}
 .dialog .alert .tt{padding-left:45px; background:url(../../tpl/images/ms_icon_alert.png) center left no-repeat;}
 .dialog .error{color:#900;}
 .dialog .error .tt{padding-left:45px; background:url(../../tpl/images/ms_icon_error.png) center left no-repeat;}
-
+.dialog .ajaxmsg p{text-align: center; margin: 0 auto; font-weight: 600;}
 /*LOAD SISTEM*/
 .dialog .loadsistem{position: absolute; width: 260px; height: 60px; padding: 30px;background: #FFF;text-align: center;font-size: 14px;font-weight: bold; text-transform: uppercase; color: #069; top: 50%; left: 50%;margin-top: -30px; margin-left: -130px;}
 .dialog .loadsistem img{margin-bottom: 5px;}
