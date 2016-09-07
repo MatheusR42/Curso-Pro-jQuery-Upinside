@@ -1,3 +1,11 @@
+<?php 
+if(function_exists('myAut')):
+	myAut('1');
+else:
+	header('Location: ../dashboard.php');
+	die;
+endif;
+?>
 <div class="content home">
     <h1 class="location">Gerenciar Usuários<span><a href="#novousuario" class="j_adduser" title="voltar">Novo usuário</a></span></h1><!--/location-->
     
@@ -6,7 +14,14 @@
     	<ul class="users">
         	<?php for($e=1;$e<=3;$e++):?>
         	<li>
-            	<img class="avatar" src="http://0.gravatar.com/avatar/4161e253b6b48b7bc34e7fbd5cdc232f?s=180&d=monsterid&r=G" />
+                <?php
+                    $atts = array(
+                        'class' => 'avatar',
+                        'title' => 'Robson Leite',
+                        'alt' => 'Robson Leite'
+                    ); 
+                    echo get_gravatar('campus@upinside.com.br', $s = 180, $d = 'mm', $r = 'g', $img = true, $atts);
+                ?>
                 <span class="nome">Robson Vidaletti Leite</span>
                 <span class="nivel">Super Admin</span>
                 <span class="data">Cadastrado em: 16/05/2013</span>

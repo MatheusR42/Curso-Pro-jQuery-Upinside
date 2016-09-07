@@ -3,16 +3,20 @@
 	session_start();
 	require_once('../dts/configs.php');
 
-	function myAut(){
+	function myAut($nivel = null){
 		if($_SESSION['userlogin']){
 			$id = $_SESSION['userlogin']['id'];
 			$login = $_SESSION['userlogin']['login'];
 			$pass = $_SESSION['userlogin']['senha'];
 			$readUser = read('usuarios', "WHERE id = '$id' AND login = '$login' AND senha = '$pass'");
-			if(!$readUser){
+			if(!$readUser):
 				unset($_SESSION['userlogin']);
 				header('Location: index.php?restrito=true');	
-			}
+			else:
+				if($nivel && $nivel != $_SESSION['userlogin']['nivel']):
+					header('Location: http://localhost/Curso-Pro-jQuery-Upinside/projeto/admin/dashboard.php?exe=sis/403');
+				endif;
+			endif;
 		}else{
 			header('Location: index.php?restrito=true');
 		}

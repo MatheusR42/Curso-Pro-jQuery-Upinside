@@ -1,5 +1,5 @@
 <?php 
-if(function_exists(myAut)):
+if(function_exists('myAut')):
 	myAut();
 else:
 	header('Location: ../dashboard.php');

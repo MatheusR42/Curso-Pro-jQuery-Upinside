@@ -1,6 +1,6 @@
 <?php 
-if(function_exists(myAut)):
-	myAut();
+if(function_exists('myAut')):
+	myAut('1');
 else:
 	header('Location: ../dashboard.php');
 	die;
@@ -23,7 +23,7 @@ endif;
     	<form name="config_manutencao" class="first" action="" method="post"> 
             <?php
                 $manutencao = read('config_manutencao');
-                foreach($manutencao as $man)
+                foreach($manutencao as $man);
                 $main = $man['manutencao'];
             ?>       
             <fieldset>
