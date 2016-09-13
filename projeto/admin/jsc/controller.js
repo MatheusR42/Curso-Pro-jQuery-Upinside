@@ -98,7 +98,7 @@ jQuery(function($) {
 	//CADASTRA USUARIOS
 	$('form[name="cadnewuser"]').submit(function(){
 		var forma = $(this);
-		var dados = 'acao=usuarios_cadastro&' + $(this).serialize();
+		var dados = 'acao=user_create&' + $(this).serialize();
 		$.ajax({
 			url: link,
 			data: dados,
@@ -120,6 +120,69 @@ jQuery(function($) {
 					myDial('error', 'Erro no servidor, tente novamente mais tarte!');
 				}else{
 					myDial('accept', 'Usuario <strong>'+resposta+'</strong> cadastrado', 'update');
+				}
+			},
+			complete: function(){
+				forma.find('.load').fadeOut('fast');
+			},
+			error: function(){
+				alert('Error');
+			}
+		});	
+		return false;
+	});
+
+	//EDITAR USUARIOS
+	$('.j_userEdit').click(function(){
+		var userId = $(this).parent().attr('id');
+		var forma = $(this);
+		var dados = 'acao=user_read&userId='+userId;
+		$.ajax({
+			url: link,
+			data: dados,
+			type: 'POST',
+			dataType: "json",
+			success: function(resposta){
+				$('.dialog').fadeIn('fast',function(){
+					console.log(resposta[0]['cadastro']);
+					$('form[name="ediUser"] option[value="'+resposta[0]['nivel']+'"]').attr('selected','selected');
+					$('form[name="ediUser"] input[name="nome"]').val(resposta[0]['nome']);
+					$('form[name="ediUser"] input[name="email"]').val(resposta[0]['email']);
+					$('form[name="ediUser"] input[name="login"]').val(resposta[0]['login']);
+					$('form[name="ediUser"] input[name="senha"]').val(resposta[0]['senha']);
+					$('form[name="ediUser"] input[name="id"]').val(resposta[0]['id']);
+					$('.edituser').fadeIn('slow');
+				});
+			}
+		});	
+		return false;
+	});
+
+	$('form[name="ediUser"]').submit(function(){
+		var forma = $(this);
+		var dados = 'acao=user_update&' + $(this).serialize();
+
+		$.ajax({
+			url: link,
+			data: dados,
+			type: 'POST',
+			beforeSend: function(){
+				forma.find('.load').fadeIn('fast');
+			},
+			success: function(resposta){
+				console.log(resposta);
+				if(resposta == 0){
+					myDial('alert', 'Preencha todos os campos!');
+				}else if(resposta == 1){
+					myDial('alert', 'E-mail invalido!');
+				}else if(resposta == 2){
+					myDial('alert', 'E-mail já cadastrado!');
+				}else if(resposta == 3){
+					myDial('alert', 'Login já cadastrado!');
+				}else if(resposta == 4){
+					myDial('error', 'Erro no servidor, tente novamente mais tarte!');
+				}else{
+					myDial('accept', 'Usuario <strong>'+resposta+'</strong> atualizado', 'update');
 				}
 			},
 			complete: function(){

@@ -6,7 +6,40 @@ require_once('../../dts/configs.php');
 $acao = mysqli_real_escape_string($conn, $_POST['acao']);
 
 switch($acao){
-    case 'usuarios_cadastro':
+
+    case 'user_read':
+        $userId = mysqli_real_escape_string($conn, $_POST['userId']);
+        $readUser = read('usuarios', "WHERE id = '$userId'");
+        echo json_encode( $readUser );
+    break;
+
+    case 'user_update':
+        $u['id'] = mysqli_real_escape_string($conn, $_POST['id']);
+        $u['nivel'] = mysqli_real_escape_string($conn, $_POST['nivel']);
+        $u['nome'] = mysqli_real_escape_string($conn, $_POST['nome']);
+        $u['login'] = mysqli_real_escape_string($conn, $_POST['login']);
+        $u['email'] = mysqli_real_escape_string($conn, $_POST['email']);
+        $u['senha'] = mysqli_real_escape_string($conn, $_POST['senha']);
+        $u['cod'] = md5($u['senha']);
+
+        if(in_array('',array_map('trim', $u))){
+            echo '0';
+        }else if(!isMail($u['email'])){
+            echo '1';
+        }else if(read('usuarios', "WHERE id != '$u[id]' AND email= '$u[email]'")){
+            echo '2';
+        }else if(read('usuarios', "WHERE id != '$u[id]' AND login = '$u[login]'")){
+            echo '3';
+        }else{
+            if(update('usuarios', $u,"id = $u[id]")){
+                echo $u['login'];
+            }else{
+                echo '4';
+            }
+        }   
+    break;
+
+    case 'user_create':
         $u['nivel'] = mysqli_real_escape_string($conn, $_POST['nivel']);
         $u['nome'] = mysqli_real_escape_string($conn, $_POST['nome']);
         $u['login'] = mysqli_real_escape_string($conn, $_POST['login']);
@@ -15,7 +48,7 @@ switch($acao){
         $u['cod'] = md5($u['senha']);
         $u['cadastro'] = date('Y-m-d:H:i:s');
 
-         if(in_array('',array_map('trim', $u))){
+        if(in_array('',array_map('trim', $u))){
             echo '0';
         }else if(!isMail($u['email'])){
             echo '1';
@@ -30,15 +63,8 @@ switch($acao){
                 echo '4';
             }
         }   
-        /*else if(){
-
-        }else{
-            update('config_mailserver', $f, "id = '1'");
-            echo '1';
-        }*/
-
-        //print_r($u);
     break;
+    
     case 'manutencaoDesativa':
        $dados =array('manutencao' => '0');
        update('config_manutencao', $dados, "manutencao= '1'");

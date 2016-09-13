@@ -68,6 +68,13 @@ a{border:none; margin:0;}
 .dialog .newuser label textarea{width:430px;}
 .dialog .newuser label select{min-width:200px;}
 
+/*  USER MODAL  - EDIT*/
+.dialog .edituser{width:500px; height:620px; margin-left:-250px; margin-top:-310px;display:none;}
+.dialog .edituser .load{display: none;}
+.dialog .edituser label input{width:430px;}
+.dialog .edituser label textarea{width:430px;}
+.dialog .edituser label select{min-width:200px;}
+
 /* HEADER */
 #header{width:100%; border-bottom:10px solid #000; border-top:10px solid #000;}
 #header .content{width:1000px; margin:0 auto;}

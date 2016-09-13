@@ -134,4 +134,46 @@
         </div><!--/content-->
         <a href="#" class="closemodal j_close_newuser">X FECHAR</a>
     </div><!--/newuser-->
+
+    <!-- EDIT USER -->
+    <div class="modal edituser">
+    	<h2>EDITAR USUÁRIO</h2>
+        <div class="content">
+            <form name="ediUser" action="" method="post">
+                <label>
+                    <span>Nível:</span>
+                    <select name="nivel">
+                    	<option value="2">Admin</option>
+                        <option value="1">Super Admin</option>
+                    </select>
+                </label>
+                <label>
+                    <span>Nome:</span>
+                    <input type="text" name="nome" />
+                </label>
+                
+                <label>
+                    <span>E-mail:</span>
+                    <input type="text" name="email" />
+                </label>
+                
+                <label>
+                    <span>Login:</span>
+                    <input type="text" name="login" />
+                </label>
+                
+                <label>
+                    <span>Senha:</span>
+                    <input type="password" name="senha" />
+                </label>
+                
+                <input type="hidden" value="" name="id" />
+                <input type="submit" value="Alterar" class="btn" />
+                <img src="img/loader.gif" class="load" alt="Carregando..." title="Carregando..." />
+            </form>
+            
+        </div><!--/content-->
+        <a href="#" class="closemodal j_close_newuser">X FECHAR</a>
+    </div><!--/edituser-->
+
 </div><!-- /dialog -->
