@@ -103,8 +103,8 @@
                 <label>
                     <span>Nível:</span>
                     <select name="nivel">
-                    	<option value="1">Admin</option>
-                        <option value="2">Super Admin</option>
+                    	<option value="2">Admin</option>
+                        <option value="1">Super Admin</option>
                     </select>
                 </label>
                 <label>
@@ -119,12 +119,12 @@
                 
                 <label>
                     <span>Login:</span>
-                    <input type="text" name="user" />
+                    <input type="text" name="login" />
                 </label>
                 
                 <label>
                     <span>Senha:</span>
-                    <input type="password" name="pass" />
+                    <input type="password" name="senha" />
                 </label>
                 
                 <input type="submit" value="Cadastrar" class="btn" />
@@ -132,6 +132,6 @@
             </form>
             
         </div><!--/content-->
-        <a href="#" class="closemodal">X FECHAR</a>
+        <a href="#" class="closemodal j_close_newuser">X FECHAR</a>
     </div><!--/newuser-->
 </div><!-- /dialog -->

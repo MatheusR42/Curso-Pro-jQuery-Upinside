@@ -6,6 +6,39 @@ require_once('../../dts/configs.php');
 $acao = mysqli_real_escape_string($conn, $_POST['acao']);
 
 switch($acao){
+    case 'usuarios_cadastro':
+        $u['nivel'] = mysqli_real_escape_string($conn, $_POST['nivel']);
+        $u['nome'] = mysqli_real_escape_string($conn, $_POST['nome']);
+        $u['login'] = mysqli_real_escape_string($conn, $_POST['login']);
+        $u['email'] = mysqli_real_escape_string($conn, $_POST['email']);
+        $u['senha'] = mysqli_real_escape_string($conn, $_POST['senha']);
+        $u['cod'] = md5($u['senha']);
+        $u['cadastro'] = date('Y-m-d:H:i:s');
+
+         if(in_array('',array_map('trim', $u))){
+            echo '0';
+        }else if(!isMail($u['email'])){
+            echo '1';
+        }else if(read('usuarios', 'WHERE email="'.$u['email'].'"')){
+            echo '2';
+        }else if(read('usuarios', 'WHERE login="'.$u['login'].'"')){
+            echo '3';
+        }else{
+            if(create('usuarios', $u)){
+                echo $u['login'];
+            }else{
+                echo '4';
+            }
+        }   
+        /*else if(){
+
+        }else{
+            update('config_mailserver', $f, "id = '1'");
+            echo '1';
+        }*/
+
+        //print_r($u);
+    break;
     case 'manutencaoDesativa':
        $dados =array('manutencao' => '0');
        update('config_manutencao', $dados, "manutencao= '1'");

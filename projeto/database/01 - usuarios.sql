@@ -1,6 +1,7 @@
 use projquery;
 
 drop table usuarios;
+
 create table usuarios(
 	id 			int(11)				not null 		auto_increment,
 	nome 		varchar(255) 		not null,
@@ -13,6 +14,7 @@ create table usuarios(
 );
 
 select * from usuarios;
+
 ALTER TABLE usuarios ADD login VARCHAR( 255 ) after email;
 ALTER TABLE usuarios MODIFY login VARCHAR( 255 ) NOT NULL;
 
@@ -67,6 +69,8 @@ ALTER TABLE config_sensorial modify titulo varchar(255) NOT NULL;
 ALTER TABLE config_sensorial modify descricao varchar(255) NOT NULL;
 ALTER TABLE config_sensorial modify facebook varchar(255) NOT NULL;
 ALTER TABLE config_sensorial modify twitter varchar(255) NOT NULL;
+
+select * from config_sensorial;
 
 create table config_endtel(
 	id int not null primary key,

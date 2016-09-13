@@ -85,10 +85,11 @@ FUNÇÃO DO PRO PHP
 FUNÇÃO DE CADASTRO NO BANCO
 *****************************/
 function create($tabela, array $datas){
+	global $conn;
 	$fields = implode(", ",array_keys($datas));
 	$values = "'".implode("', '",array_values($datas))."'";			
 	$qrCreate = "INSERT INTO {$tabela} ($fields) VALUES ($values)";
-	$stCreate = mysql_query($qrCreate) or die ('Erro ao cadastrar em '.$tabela.' '.mysql_error());
+	$stCreate = mysqli_query($conn, $qrCreate) or die ('Erro ao cadastrar em '.$tabela.' '.mysqli_error($conn));
 	
 	if($stCreate){
 		return true;
@@ -116,7 +117,7 @@ FUNÇÃO DE LEITURA NO BANCO
 function read($tabela, $cond = NULL){
 	global $conn;
 	$qrRead = "SELECT * FROM {$tabela} {$cond}";
-	$stRead = mysqli_query($conn, $qrRead) or die ('Erro ao ler em '.$tabela.' '.mysqli_error());
+	$stRead = mysqli_query($conn, $qrRead) or die ('Erro ao ler em '.$tabela.' '.mysqli_error($conn));
 	$cField = mysqli_num_fields($stRead);
 	$i = 0;
 	while ($property = mysqli_fetch_field($stRead)) {

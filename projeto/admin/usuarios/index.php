@@ -7,30 +7,29 @@ else:
 endif;
 ?>
 <div class="content home">
-    <h1 class="location">Gerenciar Usuários<span><a href="#novousuario" class="j_adduser" title="voltar">Novo usuário</a></span></h1><!--/location-->
+    <h1 class="location">Gerenciar Usuários<span><a href="#" class="j_adduser" title="voltar">Novo usuário</a></span></h1><!--/location-->
     
     <div class="usuarios">
     
     	<ul class="users">
-        	<?php for($e=1;$e<=3;$e++):?>
-        	<li>
-                <?php
-                    $atts = array(
-                        'class' => 'avatar',
-                        'title' => 'Robson Leite',
-                        'alt' => 'Robson Leite'
-                    ); 
-                    echo get_gravatar('campus@upinside.com.br', $s = 180, $d = 'mm', $r = 'g', $img = true, $atts);
-                ?>
-                <span class="nome">Robson Vidaletti Leite</span>
-                <span class="nivel">Super Admin</span>
-                <span class="data">Cadastrado em: 16/05/2013</span>
-                <div class="manage">
-                	<a class="edit" href="#editar">Editar</a>
-                    <a class="dell" href="#excluir">Excluir</a>
-                </div><!--/manage-->
-            </li>
-            <?php endfor;?> 
+        	<?php 
+                $readUser = read('usuarios', 'ORDER BY nome ASC');
+                foreach ($readUser as $user):
+                    echo '<li>';
+                        $atts = array('class' => 'avatar','title' => $user['nome'], 'alt' =>  $user['nome']); 
+                        echo get_gravatar($user['email'], $s = 180, $d = 'mm', $r = 'g', $img = true, $atts);
+                        echo '<span class="nome">'.$user['nome'].'</span>';
+                        echo '<span class="nivel">';
+                            echo ($user["nivel"] == 1) ? "Super admin" : "Admin"; 
+                        echo '</span>';
+                        echo '<span class="data">Cadastro: '.date('d/m/Y', strtotime($user['cadastro'])).'</span>';
+                        echo '<div class="manage">';
+                            echo '<a class="edit" href="#editar">Editar</a>';
+                            echo '<a class="dell" href="#excluir">Excluir</a>';
+                        echo '</div>';
+                    echo '</li>';
+                endforeach;
+            ?>
         </ul><!--/users-->
         
     </div><!--/usuarios -->
