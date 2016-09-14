@@ -1,5 +1,3 @@
-
-
 jQuery(function($) { 
 	var link = 'swith/painel.php';
 	
@@ -134,7 +132,7 @@ jQuery(function($) {
 
 	//EDITAR USUARIOS
 	$('.j_userEdit').click(function(){
-		var userId = $(this).parent().attr('id');
+		var userId = $(this).parent().parent().attr('id');
 		var forma = $(this);
 		var dados = 'acao=user_read&userId='+userId;
 		$.ajax({
@@ -195,6 +193,41 @@ jQuery(function($) {
 		return false;
 	});
 
+
+	//DELETA USUARIOS
+	$('.j_userDelete').click(function(){
+		var userId = $(this).parent().parent().attr('id');
+		var idAtual = $('.userCode').attr('id');
+		var dados = 'acao=user_delete&deleteId=' +userId+ '&idAtual=' +idAtual;
+		
+		$.ajax({
+			url: link,
+			data: dados,
+			type: 'POST',
+			beforeSend: function(){
+				$('.usuarios .users li[id="'+userId+'"]').css('background','red');
+			},
+			success: function(resposta){
+				alert(resposta);
+				if(resposta == 'errSuper'){
+					myModal('error', 'O sistema deve ter ao menos um Super Admin');
+				}else if(resposta == 'autoDelete'){
+					myModal('error', 'Não é possível apagar o próprio usuario');
+				}else if(resposta == '1'){
+					myModal('accept', 'Usuario deletado com sucesso');
+					$('.usuarios .users li[id="'+userId+'"]').fadeOut('slow');
+				}
+			},
+			complete: function(){
+				$('.usuarios .users li[id="'+userId+'"]').css('background','#FFF');
+			},
+			error: function(){
+				alert('Error');
+			}
+		});	
+		
+		return false;
+	});
 	//CONFIGURACAO
 	$('.configs .abas_config li a').click(function(){
 		$('.configs .abas_config li a').removeClass('active');

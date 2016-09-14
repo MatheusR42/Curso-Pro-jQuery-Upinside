@@ -15,7 +15,7 @@ endif;
         	<?php 
                 $readUser = read('usuarios', 'ORDER BY nome ASC');
                 foreach ($readUser as $user):
-                    echo '<li>';
+                    echo '<li id="'.$user['id'].'">';
                         $atts = array('class' => 'avatar','title' => $user['nome'], 'alt' =>  $user['nome']); 
                         echo get_gravatar($user['email'], $s = 180, $d = 'mm', $r = 'g', $img = true, $atts);
                         echo '<span class="nome">'.$user['nome'].'</span>';
@@ -23,9 +23,9 @@ endif;
                             echo ($user["nivel"] == 1) ? "Super admin" : "Admin"; 
                         echo '</span>';
                         echo '<span class="data">Cadastro: '.date('d/m/Y', strtotime($user['cadastro'])).'</span>';
-                        echo '<div class="manage" id="'.$user['id'].'">';
+                        echo '<div class="manage">';
                             echo '<a class="edit j_userEdit" href="#editar">Editar</a>';
-                            echo '<a class="dell" href="#excluir">Excluir</a>';
+                            echo '<a class="dell j_userDelete" href="#excluir">Excluir</a>';
                         echo '</div>';
                     echo '</li>';
                 endforeach;

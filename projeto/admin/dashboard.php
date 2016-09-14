@@ -26,7 +26,7 @@
 	
 	require_once('inc/header.php');
 	echo '<div id="site">';
-	
+	echo '<span class="userCode" id="'.$_SESSION['userlogin']['id'].'" style="display:none;"></span>';
 		$exe = strip_tags(trim(($_GET['exe'])));
 		if(!empty($exe)):
 			if($exe == 'exit'):

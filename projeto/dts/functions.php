@@ -172,8 +172,9 @@ FUNÇÃO DO PRO PHP
 FUNÇÃO DE DELETAR NO BANCO
 *****************************/
 function delete($tabela, $where){
+	global $conn;
 	$qrDelete = "DELETE FROM {$tabela} WHERE {$where}";
-	$stDelete = mysql_query($qrDelete) or die ('Erro ao deletar em '.$tabela.' '.mysql_error());
+	$stDelete = mysqli_query($conn, $qrDelete) or die ('Erro ao deletar em '.$tabela.' '.mysqli_error($conn));
 }
 /*****************************
 FUNÇÃO DO PRO PHP

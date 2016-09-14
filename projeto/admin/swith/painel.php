@@ -64,6 +64,28 @@ switch($acao){
             }
         }   
     break;
+
+    case 'user_delete':
+        $u['deleteId'] = mysqli_real_escape_string($conn, $_POST['deleteId']);
+        $u['idAtual'] = mysqli_real_escape_string($conn, $_POST['idAtual']);
+        $readUser = read('usuarios', "WHERE id= $u[deleteId]");
+        foreach($readUser as $readUser);
+        if($readUser['nivel'] != '1'){
+            delete('usuarios', "id=$u[deleteId]");
+            echo '1';
+        }else{
+            $readSuper = read('usuarios', "WHERE nivel='1'");
+            $numSuperAdm = count($readSuper);
+            if($numSuperAdm <= 1){
+                echo 'errSuper';
+            }else if($u['deleteId'] == $u['idAtual']) {
+                echo 'autoDelete';
+            }else{
+                delete('usuarios', "id=$u[deleteId]");
+                echo '1';
+            }
+        }               
+    break;
     
     case 'manutencaoDesativa':
        $dados =array('manutencao' => '0');
