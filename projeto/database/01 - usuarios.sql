@@ -1,6 +1,6 @@
 use projquery;
 
-drop table usuarios;
+#drop table usuarios;
 
 create table usuarios(
 	id 			int(11)				not null 		auto_increment,
@@ -26,8 +26,7 @@ create table config_manutencao(
 );
 select * from config_manutencao;
 
-
-drop table config_mailserver;
+#drop table config_mailserver;
 
 create table config_mailserver(
 	id int not null primary key,
@@ -36,6 +35,8 @@ create table config_mailserver(
     porta varchar(255) ,
     server varchar(255) 
 );
+
+
 INSERT INTO `projquery`.`config_mailserver` (`id`) VALUES ('1');
 
 UPDATE config_mailserver SET email = '' WHERE email IS NULL;
@@ -87,3 +88,18 @@ ALTER TABLE config_endtel modify telefone varchar(255) NOT NULL;
 ALTER TABLE config_endtel modify endereco varchar(255) NOT NULL;
 
 select * from config_endtel;
+
+#drop table categorias;
+create table categorias(
+	id int not null auto_increment primary key,
+    sessao int default null,
+    capa varchar(255),
+    categoria varchar(255) not null,
+    descricao text,
+    cadastro datetime not null
+);
+
+#INSERT INTO `projquery`.`categorias` (`id`, `categoria`, `descricao`, `cadastro`) VALUES ('1', 'teste', 'teste', '2008-03-09 16:05:07');
+#INSERT INTO `projquery`.`categorias` (`id`, `sessao`, `categoria`, `descricao`, `cadastro`) VALUES ('2', '1', 'teste02', 'teste02', '2008-03-09 16:05:07');
+
+select * from categorias;

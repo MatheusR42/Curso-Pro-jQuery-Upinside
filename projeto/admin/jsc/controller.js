@@ -93,6 +93,48 @@ jQuery(function($) {
 		return false;
 	});
 
+	//CATEGRIAS
+	$('.j_addcat').click(function(){
+		$('.dialog').fadeIn("fast", function(){
+			$('.newcat').fadeIn('fast');
+		});
+		return false;	
+	});
+
+	//CADASTRA CATEGORIA
+	$('form[name="cadnewcat"]').submit(function(){
+		var forma = $(this);
+		var dados = 'acao=categoria_cadastro&' + $(this).serialize();
+		
+		$.ajax({
+			url: link,
+			data: dados,
+			type: 'POST',
+			beforeSend: function(){
+				forma.find('.load').fadeIn('fast');
+			},
+			success: function(resposta){
+				if(resposta == 0){
+					myDial('alert', 'O nome deve ser preenchido!');
+				}else if(resposta == 'errIsset'){
+					myDial('alert', 'Categoria já existe');
+				}else{
+					myDial('accept', 'Cadastro efetuado com sucesso!');
+					window.setTimeout(function(){
+						$(location).attr('href', 'dashboard.php?exe=categorias/edit&catid='+ resposta);
+					}, 1000);
+				}
+			},
+			complete: function(){
+				forma.find('.load').fadeOut('fast');
+			},
+			error: function(){
+				alert('Error');
+			}
+		});	
+		return false;
+	});
+	
 	//CADASTRA USUARIOS
 	$('form[name="cadnewuser"]').submit(function(){
 		var forma = $(this);
@@ -156,6 +198,7 @@ jQuery(function($) {
 		return false;
 	});
 
+	//EDITA USUARIOS
 	$('form[name="ediUser"]').submit(function(){
 		var forma = $(this);
 		var dados = 'acao=user_update&' + $(this).serialize();
@@ -208,10 +251,7 @@ jQuery(function($) {
 				$('.usuarios .users li[id="'+userId+'"]').css('background','red');
 			},
 			success: function(resposta){
-				alert(resposta);
-				if(resposta == 'errSuper'){
-					myModal('error', 'O sistema deve ter ao menos um Super Admin');
-				}else if(resposta == 'autoDelete'){
+				if(resposta == 'autoDelete'){
 					myModal('error', 'Não é possível apagar o próprio usuario');
 				}else if(resposta == '1'){
 					myModal('accept', 'Usuario deletado com sucesso');
@@ -224,8 +264,7 @@ jQuery(function($) {
 			error: function(){
 				alert('Error');
 			}
-		});	
-		
+		});
 		return false;
 	});
 	//CONFIGURACAO

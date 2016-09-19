@@ -69,16 +69,22 @@
             <form name="cadnewcat" action="" method="post">
                 <label>
                     <span>Sessão:</span>
-                    <select name="categoria">
+                    <select name="sessao">
                     	<option value=""></option>
-                        <option value="1">ARTIGOS</option>
-                        <option value="2" disabled="disabled">&raquo; MMA</option>
-                        <option value="2" disabled="disabled">&raquo; Jiu-Jitsu</option>
-                        <option value="2" disabled="disabled">&raquo; UFC</option>
-                        <option value="1">VÍDEOS</option>
-                        <option value="2" disabled="disabled">&raquo; MMA</option>
-                        <option value="2" disabled="disabled">&raquo; Jiu-Jitsu</option>
-                        <option value="2" disabled="disabled">&raquo; UFC</option>
+                        <?php
+                            $readSessoes = read('categorias', 'WHERE sessao IS NULL');
+                            if($readSessoes):
+                                foreach($readSessoes as $readSessoes):
+                                    echo '<option value="'.$readSessoes['id'].'">'.$readSessoes['categoria'].'</option>';
+                                    $readCat = read('categorias', "WHERE sessao = '$readSessoes[id]'");
+                                    if($readCat){
+                                        foreach($readCat as $readCat):
+                                            echo '<option disabled="disabled" value="'.$readCat['id'].'">&raquo '.$readCat['categoria'].'</option>';
+                                        endforeach;
+                                    }
+                                endforeach;
+                            endif;
+                        ?>
                     </select>
                 </label>
                 <label>

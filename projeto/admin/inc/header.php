@@ -53,7 +53,7 @@ endif;
             <li class="li"><a title="Categorias" href="dashboard.php?exe=categorias/index" class="cats <?php if(in_array('categorias',$acturl)) echo 'active';?>">Categorias</a>
             	<ul class="submenu">
                 	<li><a title="Categorias" href="dashboard.php?exe=categorias/index" class="ger <?php if(in_array('categorias',$acturl)) echo 'active';?>">Gerenciar Categorias</a></li>
-                    <li><a title="Adicionar Nova" href="dashboard.php?exe=categorias/nova" class="add j_addcat <?php if(in_array('categorias',$acturl)) echo 'active';?>">Adicionar Nova</a></li>
+                    <li><a title="Adicionar Nova" href="#" class="add j_addcat <?php if(in_array('categorias',$acturl)) echo 'active';?>">Adicionar Nova</a></li>
                 </ul><!--/submenu-->
             </li><!--/-->
             <li class="li"><a title="Comentários" href="dashboard.php?exe=comentarios/index" class="coms <?php if(in_array('comentarios',$acturl)) echo 'active';?>">Comentários</a></li><!--/-->

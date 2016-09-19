@@ -6,6 +6,24 @@ require_once('../../dts/configs.php');
 $acao = mysqli_real_escape_string($conn, $_POST['acao']);
 
 switch($acao){
+    case 'categoria_cadastro':
+        $c['categoria'] = mysqli_real_escape_string($conn, $_POST['categoria']);
+        if(!$c['categoria']){
+            echo '0';
+        }else{
+            $readIsset = read('categorias', "WHERE categoria = '$c[categoria]'");
+            if($readIsset){
+                echo 'errIsset';
+            }else{
+                if($_POST['sessao']){
+                    $c['sessao'] = mysqli_real_escape_string($conn, $_POST['sessao']);
+                }
+                $c['cadastro'] = date('Y-m-d H:i:s');
+                create('categorias', $c);
+                echo mysqli_insert_id($conn);
+            }
+        }
+    break;
 
     case 'user_read':
         $userId = mysqli_real_escape_string($conn, $_POST['userId']);
@@ -75,10 +93,7 @@ switch($acao){
             echo '1';
         }else{
             $readSuper = read('usuarios', "WHERE nivel='1'");
-            $numSuperAdm = count($readSuper);
-            if($numSuperAdm <= 1){
-                echo 'errSuper';
-            }else if($u['deleteId'] == $u['idAtual']) {
+            if($u['deleteId'] == $u['idAtual']) {
                 echo 'autoDelete';
             }else{
                 delete('usuarios', "id=$u[deleteId]");
